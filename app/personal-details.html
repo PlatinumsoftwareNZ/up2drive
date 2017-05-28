@@ -1,0 +1,57 @@
+<div class="card">
+    <form id="pd" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="input-container mb-4" style="margin-top: 10px">
+                    <label>Term of loan</label>
+                    <select class="form-control" required type="text">
+                    <option>
+                        somehting
+                    </option>
+                </select>
+                </div>
+                <div class="input-container">
+                    <input required type="number" ng-model="$ctrl.model.PurchasePrice" />
+                    <label class="rel">Purchase Price $</label>
+                </div>
+                <div class="input-container">
+                    <input type="number" ng-model="$ctrl.model.Deposit" />
+                    <label class="rel" ng-class="($ctrl.model && $ctrl.model.Deposit && $ctrl.HasNumber($ctrl.model.Deposit)) ? '' : 'needs-value'">Deposit $</label>
+                </div>
+                <div class="input-container mb-4">
+                    <label>Loan Amount $</label>
+                    <div>{{$ctrl.GetLoanAmount()}}</div>
+                </div>
+                <div class="input-container">
+                    <input required type="text" ng-model="$ctrl.model.FirstName" />
+                    <label class="rel">First Name</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" ng-model="$ctrl.model.MiddleName" />
+                    <label class="rel needs-value" ng-class="($ctrl.model && $ctrl.model.MiddleName && $ctrl.HasValue($ctrl.model.MiddleName)) ? '' : 'needs-value'">Middle Name</label>
+                </div>
+                <div class="input-container">
+                    <input type="text" ng-model="$ctrl.model.PreferredName" />
+                    <label class="rel" ng-class="($ctrl.model && $ctrl.model.PreferredName && $ctrl.HasValue($ctrl.model.PreferredName)) ? '' : 'needs-value'">Preferred Name</label>
+                </div>
+                <div class="input-container">
+                    <input required type="text" ng-model="$ctrl.model.LastName" />
+                    <label class="rel">Last Name</label>
+                </div>
+                <div class="input-container">
+                    <input required type="text" ng-model="$ctrl.model.MobilePhoneNumber" />
+                    <label class="rel">Mobile Number</label>
+                </div>
+                <div class="input-container">
+                    <input required type="text" ng-model="$ctrl.model.PersonalEmail" />
+                    <label class="rel">Email</label>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5 mb-3">
+            <div class="col-sm-12">
+                <input type="submit" value="Next" />
+            </div>
+        </div>
+    </form>
+</div>
