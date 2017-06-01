@@ -16,7 +16,8 @@
                 </div>
                 <div class="input-container">
                     <input type="number" ng-model="$ctrl.model.Deposit" />
-                    <label class="rel" ng-class="($ctrl.model && $ctrl.model.Deposit && $ctrl.HasNumber($ctrl.model.Deposit)) ? '' : 'needs-value'">Deposit $</label>
+                    <label class="rel">Deposit $</label>
+                     <!--ng-class="($ctrl.model && $ctrl.model.Deposit && $ctrl.HasNumber($ctrl.model.Deposit)) ? '' : 'needs-value'"-->
                 </div>
                 <div class="input-container mb-4">
                     <label>Loan Amount $</label>
@@ -28,11 +29,14 @@
                 </div>
                 <div class="input-container">
                     <input type="text" ng-model="$ctrl.model.MiddleName" />
-                    <label class="rel needs-value" ng-class="($ctrl.model && $ctrl.model.MiddleName && $ctrl.HasValue($ctrl.model.MiddleName)) ? '' : 'needs-value'">Middle Name</label>
+                    <label class="rel">Middle Name</label>
+                     <!--needs-value-->
+                    <!--ng-class="($ctrl.model && $ctrl.model.MiddleName && $ctrl.HasValue($ctrl.model.MiddleName)) ? '' : 'needs-value'"-->
                 </div>
                 <div class="input-container">
                     <input type="text" ng-model="$ctrl.model.PreferredName" />
-                    <label class="rel" ng-class="($ctrl.model && $ctrl.model.PreferredName && $ctrl.HasValue($ctrl.model.PreferredName)) ? '' : 'needs-value'">Preferred Name</label>
+                    <label class="rel">Preferred Name</label>
+                     <!--ng-class="($ctrl.model && $ctrl.model.PreferredName && $ctrl.HasValue($ctrl.model.PreferredName)) ? '' : 'needs-value'"-->
                 </div>
                 <div class="input-container">
                     <input required type="text" ng-model="$ctrl.model.LastName" />

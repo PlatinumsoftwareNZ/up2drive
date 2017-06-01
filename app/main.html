@@ -1,3 +1,4 @@
 <h1>Stage {{$ctrl.stage}}</h1>
 
-<personal-details model="$ctrl.model" next="$ctrl.PersonalDetailsNext()"></personal-details>
+<personal-details ng-if="$ctrl.stage===1" model="$ctrl.model" next="$ctrl.PersonalDetailsNext()"></personal-details>
+<about ng-if="$ctrl.stage===2" model="$ctrl.model" next="$ctrl.AboutNext()"></about>

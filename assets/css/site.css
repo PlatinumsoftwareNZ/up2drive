@@ -69,11 +69,10 @@ input[type="number"]:valid ~ label
   font-size: 1.00em;
 }
 
-.needs-value{
-  /*top: 0 !important;*/
+/*.needs-value{
   top: -30px !important;
   font-size: 1.25em !important;
-}
+}*/
 
 input[type="text"]:focus, input[type="number"]:focus
 {

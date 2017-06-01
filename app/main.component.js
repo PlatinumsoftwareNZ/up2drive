@@ -2,13 +2,22 @@
     'use strict';
     function mainController(applicationService) {
         var ctrl = this;
-        ctrl.stage = 1;
+        ctrl.stage = 2;
         ctrl.model = {
             // PurchasePrice: 123,
             // FirstName: 'bob',
             // MiddleName: null,
             // LastName: ''
-            PersonalEmail: null
+            // PersonalEmail: null,
+            Deposit: 0,
+            Gender: 'Female',
+            RelationshipStatus: 'Single',
+            NewVehicleDetailType: 'Year/Make/Model',
+            NewVehicleData: null, //trademe listing number, registration number etc
+            NewVehicleDetails: {
+                Year: 2010
+            },
+            TradeVehicleDetails: null,
         }
 
         ctrl.MoveNext = function () {

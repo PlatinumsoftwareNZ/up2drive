@@ -1,0 +1,51 @@
+<div class="card">
+    <form id="pd" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="input-container mb-4" style="margin-top: 10px">
+                    <label>Gender</label>
+                    <select class="form-control" required type="text" ng-model="$ctrl.model.Gender">
+                        <option>Female</option>
+                        <option>Male</option>
+                    </select>
+                </div>
+                <div class="input-container mb-4" style="margin-top: 10px">
+                    <label>Relationship status?</label>
+                    <select class="form-control" required type="text" ng-model="$ctrl.model.RelationshipStatus">
+                        <option>Single</option>
+                        <option>Married</option>
+                        <option>Defacto</option>
+                        <option>Separated</option>
+                        <option>Divorced</option>
+                    </select>
+                </div>
+                <div class="input-container mb-4" style="margin-top: 10px">
+                    <label>Tell us what you know about your new vehicle?</label>
+                    <select class="form-control" required type="text" ng-model="$ctrl.model.NewVehicleDetailType">
+                        <option>{{$ctrl.YearMakeModelOption}}</option>
+                        <option>Tradme Listing Number</option>
+                        <option>Registration Number</option>
+                        <option>Dealership name</option>
+                        <option>{{$ctrl.StillLookingOption}}</option>
+                    </select>
+                </div>
+                <div class="input-container mb-4" ng-if="$ctrl.DisplayYearMakeModelOption()">
+                    <year-make-model prefix="'New Vehicle'" ng-model="$ctrl.model.NewVehicleDetails"></year-make-model>
+                </div>
+                <div class="input-container" ng-if="$ctrl.DisplayNewVehicleData()">
+                    <input required type="number" ng-model="$ctrl.model.NewVehicleData" />
+                    <label class="rel">{{$ctrl.model.NewVehicleDetailType}}</label>
+                </div>
+                <div class="input-container">
+                    <input required type="number" ng-model="$ctrl.model.PurchasePrice" />
+                    <label class="rel">Purchase Price $</label>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5 mb-3">
+            <div class="col-sm-12">
+                <input type="submit" value="Next" />
+            </div>
+        </div>
+    </form>
+</div>

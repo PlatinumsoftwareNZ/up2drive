@@ -26,21 +26,21 @@
             return loanAmount;
         }
 
-        ctrl.HasValue = function(value){
-            if(!value) return false;
+        // ctrl.HasValue = function(value){
+        //     if(!value) return false;
 
-            return value.length > 0;
-        }
+        //     return value.length > 0;
+        // }
 
-        ctrl.HasNumber = function(value){
-            if(!value) return false;
+        // ctrl.HasNumber = function(value){
+        //     if(!value) return false;
 
-            return value !== 0;
-        }
+        //     return value !== 0;
+        // }
     }
 
     angular.module('consumerApp').component('personalDetails', {
-        templateUrl: 'app/personal-details.html',
+        templateUrl: 'app/personal-details.component.html',
         controller: [ personalDetailsController],
         bindings: {
             model: "<",
