@@ -24,6 +24,14 @@
                 && ctrl.model.NewVehicleDetailType !== ctrl.StillLookingOption;
         }
 
+        ctrl.RequestBack = function(){
+            ctrl.back();
+        }
+
+        ctrl.FormSubmit = function(){
+            ctrl.next();
+        }
+
         // ctrl.HasValue = function(value){
         //     if(!value) return false;
 
@@ -42,7 +50,8 @@
         controller: [ aboutController],
         bindings: {
             model: "<",
-            next: '&'
+            next: '&',
+            back: '&'
         },
     });
 })(window.angular);

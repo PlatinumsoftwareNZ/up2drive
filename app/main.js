@@ -1,3 +1,3 @@
 (function () {
-    var app = angular.module('consumerApp', []);
+    var app = angular.module('consumerApp', ['ngAnimate']);
 }());

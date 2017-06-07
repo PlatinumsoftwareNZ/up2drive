@@ -26,6 +26,10 @@
             return loanAmount;
         }
 
+        ctrl.FormSubmit = function(){
+            ctrl.next();
+        }
+
         // ctrl.HasValue = function(value){
         //     if(!value) return false;
 

@@ -1,5 +1,5 @@
 <div class="card">
-    <form id="pd" class="container-fluid">
+    <form id="pd" class="container-fluid" ng-submit="$ctrl.FormSubmit()">
         <div class="row">
             <div class="col-sm-12">
                 <div class="input-container mb-4" style="margin-top: 10px">
@@ -43,7 +43,10 @@
             </div>
         </div>
         <div class="row mt-5 mb-3">
-            <div class="col-sm-12">
+            <div class="col-sm-6">
+                <buton class="btn btn-back" ng-click="$ctrl.RequestBack()">Back</buton>
+            </div>
+            <div class="col-sm-6">
                 <input type="submit" value="Next" />
             </div>
         </div>

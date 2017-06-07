@@ -2,13 +2,87 @@
     'use strict';
     function mainController(applicationService) {
         var ctrl = this;
-        ctrl.stage = 2;
+
+	ctrl.layoutMode = 0;
+	ctrl.list = [];
+
+	ctrl.currentAnimation;
+	ctrl.isShow = true;
+	ctrl.animations = ["toggle", 
+						"spin-toggle", 
+						"scale-fade", 
+						"scale-fade-in", 
+						"bouncy-scale-in", 
+						"flip-in", 
+						"slide-left", 
+						"slide-right", 
+						"slide-top", 
+						"slide-down", 
+						"bouncy-slide-left", 
+						"bouncy-slide-right", 
+						"bouncy-slide-top", 
+						"bouncy-slide-down", 
+						"rotate-in"];
+
+	ctrl.addItem = function (animation) {		
+		for (var i = 0; i < 6; i++) {
+            ctrl.list.push({ title : "item" });
+		};		
+	}
+
+	ctrl.removeItem = function (item) {
+		var index = ctrl.list.indexOf(item);
+		ctrl.list.remove(index);
+	}
+
+	ctrl.cleanList = function () {
+		for (var i = 0; i < ctrl.list.length; i++) {
+            ctrl.list.pop();
+		};
+	}
+
+	ctrl.switchGridMode = function () {
+		ctrl.layoutMode = 0;
+	}
+
+	ctrl.switchListMode = function () {
+		ctrl.layoutMode = 1;
+	}
+
+	ctrl.toggle = function () {
+		ctrl.TestShow = !ctrl.TestShow;
+	}
+
+
+
+
+ctrl.TestShow = true;
+ctrl.TestToggle = function(){
+    ctrl.TestShow = !ctrl.TestShow;
+    console.log(ctrl.TestShow);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+        ctrl.stage = 1;
         ctrl.model = {
-            // PurchasePrice: 123,
-            // FirstName: 'bob',
-            // MiddleName: null,
-            // LastName: ''
-            // PersonalEmail: null,
+            //Temp testing values
+            PurchasePrice: 123,
+            FirstName: 'bob',
+            MiddleName: 'botty',
+            LastName: 'bottit',
+            PersonalEmail: 'bob@bobby.bob',
+            MobilePhoneNumber: '007bobbob',
+
             Deposit: 0,
             Gender: 'Female',
             RelationshipStatus: 'Single',
@@ -25,6 +99,7 @@
         };
 
         ctrl.MoveBack = function () {
+            console.log('back');
             ctrl.stage--;
         };        
 
@@ -40,8 +115,10 @@
         }
 
         ctrl.PersonalDetailsNext = function(){
-            console.log('PersonalDetailsNext');
+            ctrl.MoveNext();
+        }
 
+        ctrl.AboutNext = function(){
             ctrl.MoveNext();
         }
     }
@@ -51,3 +128,13 @@
         controller: ['applicationService', mainController]
     });
 })(window.angular);
+
+
+
+
+//Temp
+Array.prototype.remove = function(from, to) {
+  var rest = this.slice((to || from) + 1 || this.length);
+  this.length = from < 0 ? this.length + from : from;
+  return this.push.apply(this, rest);
+};
