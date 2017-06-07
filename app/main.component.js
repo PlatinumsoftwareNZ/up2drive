@@ -3,77 +3,7 @@
     function mainController(applicationService) {
         var ctrl = this;
 
-	ctrl.layoutMode = 0;
-	ctrl.list = [];
-
-	ctrl.currentAnimation;
-	ctrl.isShow = true;
-	ctrl.animations = ["toggle", 
-						"spin-toggle", 
-						"scale-fade", 
-						"scale-fade-in", 
-						"bouncy-scale-in", 
-						"flip-in", 
-						"slide-left", 
-						"slide-right", 
-						"slide-top", 
-						"slide-down", 
-						"bouncy-slide-left", 
-						"bouncy-slide-right", 
-						"bouncy-slide-top", 
-						"bouncy-slide-down", 
-						"rotate-in"];
-
-	ctrl.addItem = function (animation) {		
-		for (var i = 0; i < 6; i++) {
-            ctrl.list.push({ title : "item" });
-		};		
-	}
-
-	ctrl.removeItem = function (item) {
-		var index = ctrl.list.indexOf(item);
-		ctrl.list.remove(index);
-	}
-
-	ctrl.cleanList = function () {
-		for (var i = 0; i < ctrl.list.length; i++) {
-            ctrl.list.pop();
-		};
-	}
-
-	ctrl.switchGridMode = function () {
-		ctrl.layoutMode = 0;
-	}
-
-	ctrl.switchListMode = function () {
-		ctrl.layoutMode = 1;
-	}
-
-	ctrl.toggle = function () {
-		ctrl.TestShow = !ctrl.TestShow;
-	}
-
-
-
-
-ctrl.TestShow = true;
-ctrl.TestToggle = function(){
-    ctrl.TestShow = !ctrl.TestShow;
-    console.log(ctrl.TestShow);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-        ctrl.stage = 1;
+        ctrl.stage = 2;
         ctrl.model = {
             //Temp testing values
             PurchasePrice: 123,
@@ -92,6 +22,7 @@ ctrl.TestToggle = function(){
                 Year: 2010
             },
             TradeVehicleDetails: null,
+            VehicleToTrade: false,
         }
 
         ctrl.MoveNext = function () {

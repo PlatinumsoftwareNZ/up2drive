@@ -4,24 +4,27 @@
         var ctrl = this;
         ctrl.YearMakeModelOption = "Year/Make/Model";
         ctrl.StillLookingOption = "Still Looking";
+        ctrl.TradeVehicleOptions = [
+            {value: false, text: 'No'},
+            {value: true, text: 'Yes'}
+        ];
 
         ctrl.$onInit = function () {
-            console.log('$onInit: aboutController');
-
-            if(ctrl.model){
-                console.log(ctrl.model.Gender);
-            }
         };
 
-        ctrl.DisplayYearMakeModelOption = function(){
+        ctrl.DisplayNewYearMakeModel = function(){
             return ctrl.model
                 && ctrl.model.NewVehicleDetailType === ctrl.YearMakeModelOption;
         }
 
-        ctrl.DisplayNewVehicleData = function(){
+        ctrl.DisplayNewDetails = function(){
             return ctrl.model
                 && ctrl.model.NewVehicleDetailType !== ctrl.YearMakeModelOption
                 && ctrl.model.NewVehicleDetailType !== ctrl.StillLookingOption;
+        }
+
+        ctrl.DisplayTradeYearMakeModel = function(){
+            return ctrl.model.VehicleToTrade;
         }
 
         ctrl.RequestBack = function(){

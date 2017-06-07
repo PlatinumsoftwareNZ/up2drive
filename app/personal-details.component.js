@@ -5,11 +5,7 @@
         var currentStage = "";
 
         ctrl.$onInit = function () {
-            console.log('$onInit: personalDetailsController');
 
-            if(ctrl.model && ctrl.model.MiddleName){
-                console.log('hai');
-            }
         };
 
         ctrl.GetLoanAmount = function(){
