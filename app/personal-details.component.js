@@ -1,8 +1,9 @@
 (function (angular) {
     'use strict';
-    function personalDetailsController(applicationService) {
+    function personalDetailsController(optionsService) {
         var ctrl = this;
-        var currentStage = "";
+
+        ctrl.TermOptions = optionsService.GetTermOptions();
 
         ctrl.$onInit = function () {
 
@@ -41,7 +42,7 @@
 
     angular.module('consumerApp').component('personalDetails', {
         templateUrl: 'app/personal-details.component.html',
-        controller: [ personalDetailsController],
+        controller: [ 'optionsService', personalDetailsController],
         bindings: {
             model: "<",
             next: '&'

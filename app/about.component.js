@@ -1,13 +1,17 @@
 (function (angular) {
     'use strict';
-    function aboutController(applicationService) {
+    function aboutController(optionsService, countryService) {
         var ctrl = this;
-        ctrl.YearMakeModelOption = "Year/Make/Model";
-        ctrl.StillLookingOption = "Still Looking";
-        ctrl.TradeVehicleOptions = [
-            {value: false, text: 'No'},
-            {value: true, text: 'Yes'}
-        ];
+
+        ctrl.GenderOptions = optionsService.GetGenderOptions();
+        ctrl.RelationshipStatusOptions = optionsService.GetRelationshipStatusOptions();
+        ctrl.NewVehicleDetailTypeOptions = optionsService.GetNewVehicleDetailTypeOptions();
+        ctrl.YearMakeModelOption = ctrl.NewVehicleDetailTypeOptions[0];
+        ctrl.StillLookingOption = ctrl.NewVehicleDetailTypeOptions[4];
+        ctrl.YesNoOptions = optionsService.GetYesNoOptions();
+        ctrl.CountryOptions = countryService.GetCountries();
+        ctrl.DriverLicenceOptions = optionsService.GetDriverLicenceOptions();        
+        ctrl.CreditHistoryOptions = optionsService.GetCreditHistoryOptions();
 
         ctrl.$onInit = function () {
         };
@@ -34,23 +38,11 @@
         ctrl.FormSubmit = function(){
             ctrl.next();
         }
-
-        // ctrl.HasValue = function(value){
-        //     if(!value) return false;
-
-        //     return value.length > 0;
-        // }
-
-        // ctrl.HasNumber = function(value){
-        //     if(!value) return false;
-
-        //     return value !== 0;
-        // }
     }
 
     angular.module('consumerApp').component('about', {
         templateUrl: 'app/about.component.html',
-        controller: [ aboutController],
+        controller: [ 'optionsService', 'countryService', aboutController],
         bindings: {
             model: "<",
             next: '&',

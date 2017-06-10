@@ -1,11 +1,14 @@
 (function (angular) {
     'use strict';
-    function mainController(applicationService) {
+    function mainController(optionsService, applicationService) {
         var ctrl = this;
 
-        ctrl.stage = 2;
+        ctrl.stage = 3;
         ctrl.model = {
-            //Temp testing values
+            //Personal details
+            Term: optionsService.GetTermOptions()[0],
+
+            //About
             PurchasePrice: 123,
             FirstName: 'bob',
             MiddleName: 'botty',
@@ -14,15 +17,40 @@
             MobilePhoneNumber: '007bobbob',
 
             Deposit: 0,
-            Gender: 'Female',
-            RelationshipStatus: 'Single',
-            NewVehicleDetailType: 'Year/Make/Model',
+            Gender: optionsService.GetGenderOptions()[0],
+            RelationshipStatus: optionsService.GetRelationshipStatusOptions()[0],
+            NewVehicleDetailType: optionsService.GetNewVehicleDetailTypeOptions()[0],
             NewVehicleData: null, //trademe listing number, registration number etc
             NewVehicleDetails: {
-                Year: 2010
+                Year: 2010,
+                Make: '',
+                Model: ''
             },
-            TradeVehicleDetails: null,
+            TradeVehicleDetails: {
+                Year: 2010,
+                Make: '',
+                Model: ''
+            },
             VehicleToTrade: false,
+            NzBorn: false,
+            CountryBornIn: 'New Zealand',
+            DriverLicenceType: optionsService.GetDriverLicenceOptions()[0],
+            CreditHistoryType: optionsService.GetCreditHistoryOptions()[0],
+
+            //More about
+            CurrentAddressType: optionsService.GetCurrentAddressTypeOptions()[0].value,
+            CurrentAddress: null, //TODO
+            CurrentAddressYears: null,
+            CurrentAddressMonths: null,
+            CurrentOccupation: {
+                EmployerName: null,
+                Occupation: null,
+                Years: null,
+                Months: null
+            },
+            PreviousOccupation: {
+                EmployerName: null
+            }
         }
 
         ctrl.MoveNext = function () {
@@ -56,7 +84,7 @@
 
     angular.module('consumerApp').component('main', {
         templateUrl: 'app/main.html',
-        controller: ['applicationService', mainController]
+        controller: ['optionsService', 'applicationService', mainController]
     });
 })(window.angular);
 

@@ -3,11 +3,11 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="input-container mb-4" style="margin-top: 10px">
-                    <label>Term of loan</label>
-                    <select class="form-control" required type="text">
-                    <option>
-                        somehting
-                    </option>
+                    <label>Term of loan</label>     
+                    <select name="Term" class="form-control"
+                        ng-options="option as option for option in $ctrl.TermOptions"
+                        ng-model="$ctrl.model.Term">
+                    </select>
                 </select>
                 </div>
                 <div class="input-container">
@@ -17,7 +17,6 @@
                 <div class="input-container">
                     <input type="number" ng-model="$ctrl.model.Deposit" />
                     <label class="rel">Deposit $</label>
-                     <!--ng-class="($ctrl.model && $ctrl.model.Deposit && $ctrl.HasNumber($ctrl.model.Deposit)) ? '' : 'needs-value'"-->
                 </div>
                 <div class="input-container mb-4">
                     <label>Loan Amount $</label>
@@ -30,13 +29,10 @@
                 <div class="input-container">
                     <input type="text" ng-model="$ctrl.model.MiddleName" />
                     <label class="rel">Middle Name</label>
-                     <!--needs-value-->
-                    <!--ng-class="($ctrl.model && $ctrl.model.MiddleName && $ctrl.HasValue($ctrl.model.MiddleName)) ? '' : 'needs-value'"-->
                 </div>
                 <div class="input-container">
                     <input type="text" ng-model="$ctrl.model.PreferredName" />
                     <label class="rel">Preferred Name</label>
-                     <!--ng-class="($ctrl.model && $ctrl.model.PreferredName && $ctrl.HasValue($ctrl.model.PreferredName)) ? '' : 'needs-value'"-->
                 </div>
                 <div class="input-container">
                     <input required type="text" ng-model="$ctrl.model.LastName" />
