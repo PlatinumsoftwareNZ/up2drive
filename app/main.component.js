@@ -3,7 +3,7 @@
     function mainController(optionsService, applicationService) {
         var ctrl = this;
 
-        ctrl.stage = 3;
+        ctrl.stage = 4;
         ctrl.model = {
             //Personal details
             Term: optionsService.GetTermOptions()[0],
@@ -50,7 +50,31 @@
             },
             PreviousOccupation: {
                 EmployerName: null
-            }
+            },
+
+            //Financials
+            Assets: [
+                { OptionName: 'Home', Value: 0, Display: 'Property Value' },
+                { OptionName: 'Home Contents', Value: 0, Display: 'Home contents value' },
+                { OptionName: 'Car', Value: 0, Display: 'Vehicle(s) Value' },
+                { OptionName: 'Other', Value: 0, Display: 'Other' }
+            ],
+            Liabilities: [
+                { OptionName: 'Mortgage', Value: 0, Display: 'Mortgage Balance' },
+                { OptionName: 'Loan', Value: 0, Display: 'Bank or personal loan' },
+                { OptionName: 'Hire Purchase', Value: 0, Display: 'Hire purchase(s)' },
+                { OptionName: 'Other', Value: 0, Display: 'Other' }
+            ],
+            Income: [
+                { OptionName: 'Take Home Pay', Value: 0, Display: 'What is your take home pay' },
+                { OptionName: 'Spouse Take Home Pay', Value: 0, Display: 'What is your Spouse\'s take home pay' },
+                { OptionName: 'Other', Value: 0, Display: 'Other' }
+            ],
+            Expenses: [
+                { OptionName: 'Mortgage', Value: 0, Display: 'Mortgage/rent' },
+                { OptionName: 'Loan', Value: 0, Display: 'Bank or personal loan' },
+                { OptionName: 'Hire Purchase', Value: 0, Display: 'Hire purchase(s)' },
+            ]
         }
 
         ctrl.MoveNext = function () {
@@ -60,9 +84,9 @@
         ctrl.MoveBack = function () {
             console.log('back');
             ctrl.stage--;
-        };        
+        };
 
-        ctrl.Save = function(){
+        ctrl.Save = function () {
             var application = null;
 
             applicationService.Save()
@@ -73,11 +97,11 @@
                 });
         }
 
-        ctrl.PersonalDetailsNext = function(){
+        ctrl.PersonalDetailsNext = function () {
             ctrl.MoveNext();
         }
 
-        ctrl.AboutNext = function(){
+        ctrl.AboutNext = function () {
             ctrl.MoveNext();
         }
     }
@@ -92,8 +116,8 @@
 
 
 //Temp
-Array.prototype.remove = function(from, to) {
-  var rest = this.slice((to || from) + 1 || this.length);
-  this.length = from < 0 ? this.length + from : from;
-  return this.push.apply(this, rest);
+Array.prototype.remove = function (from, to) {
+    var rest = this.slice((to || from) + 1 || this.length);
+    this.length = from < 0 ? this.length + from : from;
+    return this.push.apply(this, rest);
 };

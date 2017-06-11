@@ -1,0 +1,7 @@
+<div>
+    <label>{{$ctrl.title}}</label>
+</div>
+<div class="input-container" ng-repeat="option in $ctrl.options">
+    <input type="number" ng-model="option.Value" />
+    <label class="rel">{{option.OptionName}} $</label>
+</div>
