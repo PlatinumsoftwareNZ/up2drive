@@ -1,4 +1,4 @@
-<h1>Stage {{$ctrl.stage}}</h1>
+<h1>Stage {{$ctrl.stage}} - {{$ctrl.stageDescriptions[$ctrl.stage - 1]}}</h1>
 
 <personal-details ng-class="'slide-left'" ng-show="$ctrl.stage===1" model="$ctrl.model" next="$ctrl.PersonalDetailsNext()"></personal-details>
 <about ng-class="'slide-left'" ng-show="$ctrl.stage===2" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></about>

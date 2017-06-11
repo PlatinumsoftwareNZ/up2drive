@@ -3,18 +3,25 @@
     function mainController(optionsService, applicationService) {
         var ctrl = this;
 
-        ctrl.stage = 4;
+        ctrl.stage = 1;
+        ctrl.stageDescriptions = [
+            "Quote",
+            "Tell us more about you and your vehicle",
+            "Tell us a more about you",
+            "Tell us a about what you owe and what you own",
+        ];
+
         ctrl.model = {
             //Personal details
             Term: optionsService.GetTermOptions()[0],
 
             //About
-            PurchasePrice: 123,
-            FirstName: 'bob',
-            MiddleName: 'botty',
-            LastName: 'bottit',
-            PersonalEmail: 'bob@bobby.bob',
-            MobilePhoneNumber: '007bobbob',
+            PurchasePrice: null,//123,
+            FirstName: null,//'bob',
+            MiddleName: null,//'botty',
+            LastName: null,//'bottit',
+            PersonalEmail: null,//'bob@bobby.bob',
+            MobilePhoneNumber: null,//'007bobbob',
 
             Deposit: 0,
             Gender: optionsService.GetGenderOptions()[0],
