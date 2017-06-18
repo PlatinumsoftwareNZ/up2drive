@@ -1,6 +1,6 @@
 (function (angular) {
     'use strict';
-    function mainController(optionsService, applicationService) {
+    function mainController($moment,optionsService, applicationService) {
         var ctrl = this;
 
         ctrl.stage = 1;
@@ -23,8 +23,18 @@
             PersonalEmail: null,//'bob@bobby.bob',
             MobilePhoneNumber: null,//'007bobbob',
 
+            //About testing
+            // PurchasePrice: 123,
+            // FirstName: 'bob',
+            // MiddleName: 'botty',
+            // LastName: 'bottit',
+            // PreferredName: 'Preferred',
+            // PersonalEmail: 'bob@bobby.bob',
+            // MobilePhoneNumber: '007bobbob',
+
             Deposit: 0,
             Gender: optionsService.GetGenderOptions()[0],
+            DateOfBirth: moment().subtract(25, 'year').toDate(),
             RelationshipStatus: optionsService.GetRelationshipStatusOptions()[0],
             NewVehicleDetailType: optionsService.GetNewVehicleDetailTypeOptions()[0],
             NewVehicleData: null, //trademe listing number, registration number etc
@@ -33,6 +43,12 @@
                 Make: '',
                 Model: ''
             },
+            // testing data
+            // NewVehicleDetails: {
+            //     Year: 2010,
+            //     Make: 'Some Manufacturer',
+            //     Model: 'Car Model'
+            // },
             TradeVehicleDetails: {
                 Year: 2010,
                 Make: '',
@@ -46,18 +62,62 @@
 
             //More about
             CurrentAddressType: optionsService.GetCurrentAddressTypeOptions()[0].value,
-            CurrentAddress: null, //TODO
+            CurrentAddress: {
+                StreetNumber: null,
+                StreetName: null,
+                Suburb: null,
+                State: null,
+                Country: null,
+                PostCode: null
+            },
             CurrentAddressYears: null,
             CurrentAddressMonths: null,
             CurrentOccupation: {
                 EmployerName: null,
                 Occupation: null,
-                Years: null,
-                Months: null
+                Years: 0,
+                Months: 0
+            },
+            PreviousAddress: {
+                StreetNumber: null,
+                StreetName: null,
+                Suburb: null,
+                State: null,
+                Country: null,
+                PostCode: null
             },
             PreviousOccupation: {
                 EmployerName: null
             },
+
+            // testing data
+            // CurrentAddress: {
+            //     StreetNumber: 4,
+            //     StreetName: 'Larchwood Lane',
+            //     Suburb: 'Parklands',
+            //     State: '',
+            //     Country: 'New Zealand',
+            //     PostCode: '8083'
+            // },
+            // CurrentAddressYears: 1,
+            // CurrentAddressMonths: 2,
+            // CurrentOccupation: {
+            //     EmployerName: 'Spacely Sprockets',
+            //     Occupation: 'Widget maker',
+            //     Years: 1,
+            //     Months: 2
+            // },
+            // PreviousAddress: {
+            //     StreetNumber: 2,
+            //     StreetName: 'Larchwood Lane',
+            //     Suburb: 'Parklands',
+            //     State: '',
+            //     Country: 'New Zealand',
+            //     PostCode: '8083'
+            // },
+            // PreviousOccupation: {
+            //     EmployerName: 'Somewhere else'
+            // },
 
             //Financials
             Assets: [
@@ -115,7 +175,7 @@
 
     angular.module('consumerApp').component('main', {
         templateUrl: 'app/main.html',
-        controller: ['optionsService', 'applicationService', mainController]
+        controller: ['$moment', 'optionsService', 'applicationService', mainController]
     });
 })(window.angular);
 

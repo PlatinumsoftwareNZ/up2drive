@@ -6,29 +6,39 @@
     <link rel="stylesheet" href="assets/css/site.css">
     <link rel="stylesheet" href="assets/css/layout.css">
     <link rel="stylesheet" href="assets/css/ng-animation.css">
+    <link rel="stylesheet" href="node_modules/angular-google-places-autocomplete/dist/autocomplete.min.css">
 </head>
 
 <body>
     <div class="container" ng-app="consumerApp">
         <main></main>
     </div>
+    <!--Libs-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNvD6y9oJzujoPzFxcY9BYzSjNcHmpNro&libraries=places"></script>
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+    <script src="node_modules/moment/min/moment.min.js"></script>
+    <script src="node_modules/angular-momentjs/angular-momentjs.min.js"></script>
+    <script src="node_modules/angular-google-places-autocomplete/dist/autocomplete.min.js"></script>
+
+    <!--App-->
     <script src="app/main.js"></script>
     
     <!--Services-->
-    <script src="app/application.service.js"></script>
-    <script src="app/country.service.js"></script>
-    <script src="app/options.service.js"></script>
+    <script src="app/application.service.js?d=17.6.18"></script>
+    <script src="app/country.service.js?d=17.6.18"></script>
+    <script src="app/options.service.js?d=17.6.18"></script>
 
     <!--Components-->
-    <script src="app/main.component.js"></script>
-    <script src="app/personal-details.component.js"></script>
-    <script src="app/about.component.js"></script>
-    <script src="app/year-make-model.component.js"></script>
-    <script src="app/more-about.component.js"></script>
-    <script src="app/financials.component.js"></script>
-    <script src="app/financial-options.component.js"></script>
+    <script src="app/date-dropdown.component.js?d=17.6.18"></script>
+    <script src="app/address-finder.component.js?d=17.6.18"></script>
+    <script src="app/main.component.js?d=17.6.18"></script>
+    <script src="app/personal-details.component.js?d=17.6.18"></script>
+    <script src="app/about.component.js?d=17.6.18"></script>
+    <script src="app/year-make-model.component.js?d=17.6.18"></script>
+    <script src="app/more-about.component.js?d=17.6.18"></script>
+    <script src="app/financials.component.js?d=17.6.18"></script>
+    <script src="app/financial-options.component.js?d=17.6.18"></script>
 </body>
 
 </html>

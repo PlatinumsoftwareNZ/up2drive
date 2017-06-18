@@ -7,7 +7,11 @@
                     <select class="form-control" ng-options="option.value as option.text for option in $ctrl.CurrentAddressTypeOptions" ng-model="$ctrl.model.CurrentAddressType">
                     </select>
                 </div>
-                <!--TODO: Add address finder-->
+
+                <div class="my-4">
+                    <address-finder label="'Current Address'" model="$ctrl.model.CurrentAddress"></address-finder>
+                </div>
+
                 <div>
                     <label>How long have you lived here for?</label>
                 </div>
@@ -27,6 +31,11 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="my-4" ng-hide="$ctrl.DisplayPreviousAddress()">
+                    <address-finder label="'Previous Address'" model="$ctrl.model.PreviousAddress"></address-finder>
+                </div>
+
                 <div class="input-container">
                     <input required type="text" ng-model="$ctrl.model.CurrentOccupation.EmployerName" />
                     <label class="rel">Who do you work for?</label>
@@ -54,7 +63,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="input-container">
+                <div class="input-container" ng-hide="$ctrl.DisplayPreviousOccupation()">
                     <input required type="text" ng-model="$ctrl.model.PreviousOccupation.EmployerName" />
                     <label class="rel">Who did you work for before that?</label>
                 </div>

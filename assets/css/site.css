@@ -133,3 +133,23 @@ input[type="submit"]:active {
   border: solid transparent;
   border-width: 0 0 0px 0;
 }
+
+.text-1{
+  font-size: 4em;
+}
+
+.text-2{
+  font-size: 3em;
+}
+
+.text-3{
+  font-size: 2em;
+}
+
+.text-4{
+  font-size: 1.5em;
+}
+
+.text-5{
+  font-size: 0.9em;
+}

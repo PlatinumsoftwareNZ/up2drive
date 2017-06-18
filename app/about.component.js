@@ -13,9 +13,6 @@
         ctrl.DriverLicenceOptions = optionsService.GetDriverLicenceOptions();        
         ctrl.CreditHistoryOptions = optionsService.GetCreditHistoryOptions();
 
-        ctrl.$onInit = function () {
-        };
-
         ctrl.DisplayNewYearMakeModel = function(){
             return ctrl.model
                 && ctrl.model.NewVehicleDetailType === ctrl.YearMakeModelOption;

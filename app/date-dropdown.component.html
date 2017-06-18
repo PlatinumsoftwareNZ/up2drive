@@ -1,0 +1,8 @@
+<div>
+    <select style="width: 80px; display: inline-block" class="form-control" ng-change="$ctrl.onYearMonthChange()" ng-options="option.value as option.text for option in $ctrl.yearOptions"
+        ng-model="$ctrl.yearValue"></select>
+    <select style="width: 150px; display: inline-block" class="form-control" ng-change="$ctrl.onYearMonthChange()" ng-options="option.value as option.text for option in $ctrl.monthOptions"
+        ng-model="$ctrl.monthValue"></select>
+    <select style="width: 80px; display: inline-block" class="form-control" ng-change="$ctrl.onChange()" ng-options="option.value as option.text for option in $ctrl.dayOptions"
+        ng-model="$ctrl.dayValue"></select>
+</div>

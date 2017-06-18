@@ -1,11 +1,7 @@
 (function (angular) {
     'use strict';
     function financialOptionsController() {
-        var ctrl = this;
-        
-        ctrl.$onInit = function () {
-            console.log('here');
-        };
+        var ctrl = this;        
     }
 
     angular.module('consumerApp').component('financialOptions', {

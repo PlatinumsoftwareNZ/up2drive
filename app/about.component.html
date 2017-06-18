@@ -10,6 +10,10 @@
                     </select>
                 </div>
                 <div class="input-container mb-4 mt-3">
+                    <label>Date of Birth</label>                
+                    <date-dropdown value="$ctrl.model.DateOfBirth"></date-dropdown>
+                </div>
+                <div class="input-container mb-4 mt-3">
                     <label>Relationship status?</label>             
                     <select name="RelationshipStatus" class="form-control"
                         ng-options="option as option for option in $ctrl.RelationshipStatusOptions"
@@ -17,7 +21,7 @@
                     </select>
                 </div>
                 <div class="input-container mb-4 mt-3">
-                    <label>Tell us what you know about your new vehicle?</label>          
+                    <label>Tell us what you know about your new vehicle</label>          
                     <select name="NewVehicleDetailType" class="form-control"
                         ng-options="option as option for option in $ctrl.NewVehicleDetailTypeOptions"
                         ng-model="$ctrl.model.NewVehicleDetailType">
@@ -27,7 +31,7 @@
                     <year-make-model prefix="'New Vehicle'" model="$ctrl.model.NewVehicleDetails"></year-make-model>
                 </div>
                 <div class="input-container" ng-if="$ctrl.DisplayNewDetails()">
-                    <input required type="number" ng-model="$ctrl.model.NewVehicleData" />
+                    <input required type="text" ng-model="$ctrl.model.NewVehicleData" />
                     <label name="NewVehicleData" class="rel">{{$ctrl.model.NewVehicleDetailType}}</label>
                 </div>
                 <div class="input-container mb-4 mt-3">

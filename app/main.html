@@ -1,6 +1,8 @@
 <h1>Stage {{$ctrl.stage}} - {{$ctrl.stageDescriptions[$ctrl.stage - 1]}}</h1>
 
-<personal-details ng-class="'slide-left'" ng-show="$ctrl.stage===1" model="$ctrl.model" next="$ctrl.PersonalDetailsNext()"></personal-details>
-<about ng-class="'slide-left'" ng-show="$ctrl.stage===2" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></about>
-<more-about ng-class="'slide-left'" ng-show="$ctrl.stage===3" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></more-about>
-<financials ng-class="'slide-left'" ng-show="$ctrl.stage===4" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></financials>
+<div class="mb-5">
+    <personal-details ng-class="'slide-left'" ng-show="$ctrl.stage===1" model="$ctrl.model" next="$ctrl.PersonalDetailsNext()"></personal-details>
+    <about ng-class="'slide-left'" ng-show="$ctrl.stage===2" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></about>
+    <more-about ng-class="'slide-left'" ng-show="$ctrl.stage===3" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></more-about>
+    <financials ng-class="'slide-left'" ng-show="$ctrl.stage===4" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></financials>
+</div>
