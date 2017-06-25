@@ -24,7 +24,7 @@
             }
 
             var months = moment.months();
-            console.log(months.length);
+            
             for (var m = 0; m < months.length; m++) {
                 var innerMonth = months[m];
                 ctrl.monthOptions.push({ value: m, text: innerMonth })
@@ -45,8 +45,6 @@
 
         ctrl.updateValue = function () {
             ctrl.value = new Date(ctrl.yearValue, ctrl.monthValue, ctrl.dayValue);
-
-                        console.log(ctrl.value);
         }
 
         ctrl.setDaysInMonth = function (year, month, currentDay) {
@@ -62,8 +60,6 @@
                 if (!match)
                     match = i === currentDay;
             }
-
-            console.log(match);
 
             //update the currentDay if it is no longer valid for the current year and month
             if (!match)

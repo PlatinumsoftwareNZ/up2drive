@@ -1,17 +1,7 @@
 (function (angular) {
     'use strict';
-    function aboutController(optionsService, countryService) {
+    function financialsController(optionsService, countryService) {
         var ctrl = this;
-
-        ctrl.GenderOptions = optionsService.GetGenderOptions();
-        ctrl.RelationshipStatusOptions = optionsService.GetRelationshipStatusOptions();
-        ctrl.NewVehicleDetailTypeOptions = optionsService.GetNewVehicleDetailTypeOptions();
-        ctrl.YearMakeModelOption = ctrl.NewVehicleDetailTypeOptions[0];
-        ctrl.StillLookingOption = ctrl.NewVehicleDetailTypeOptions[4];
-        ctrl.YesNoOptions = optionsService.GetYesNoOptions();
-        ctrl.CountryOptions = countryService.GetCountries();
-        ctrl.DriverLicenceOptions = optionsService.GetDriverLicenceOptions();        
-        ctrl.CreditHistoryOptions = optionsService.GetCreditHistoryOptions();
 
         ctrl.$onInit = function () {
         };
@@ -42,7 +32,7 @@
 
     angular.module('consumerApp').component('financials', {
         templateUrl: 'app/financials.component.html',
-        controller: [ 'optionsService', 'countryService', aboutController],
+        controller: [ 'optionsService', 'countryService', financialsController],
         bindings: {
             model: "<",
             next: '&',

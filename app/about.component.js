@@ -4,7 +4,7 @@
         var ctrl = this;
 
         ctrl.GenderOptions = optionsService.GetGenderOptions();
-        ctrl.RelationshipStatusOptions = optionsService.GetRelationshipStatusOptions();
+        ctrl.MaritalStatusOptions = optionsService.GetMaritalStatusOptions();
         ctrl.NewVehicleDetailTypeOptions = optionsService.GetNewVehicleDetailTypeOptions();
         ctrl.YearMakeModelOption = ctrl.NewVehicleDetailTypeOptions[0];
         ctrl.StillLookingOption = ctrl.NewVehicleDetailTypeOptions[4];

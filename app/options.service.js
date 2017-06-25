@@ -6,21 +6,22 @@
 
         //TODO when confirmed
         self.GetTermOptions = function () {
-            return [
-                'TBC',
-                'Before',
-                'Live'
+            return [{ value: 12, text: '12 months' },
+            { value: 24, text: '24 months' },
+            { value: 36, text: '36 months' },
+            { value: 48, text: '48 months' },
+            { value: 60, text: '60 months' }
             ];
         }
 
         self.GetGenderOptions = function () {
             return [
-                'Female',
-                'Male'
+                'female',
+                'male'
             ];
         }
 
-        self.GetRelationshipStatusOptions = function () {
+        self.GetMaritalStatusOptions = function () {
             return [
                 'Single',
                 'Married',
@@ -42,8 +43,8 @@
 
         self.GetYesNoOptions = function () {
             return [
-                { value: false, text: 'No' },
-                { value: true, text: 'Yes' }
+                { value: 'No', text: 'No' },
+                { value: 'Yes', text: 'Yes' }
             ];
         }
 

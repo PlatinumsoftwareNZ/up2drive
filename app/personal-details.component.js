@@ -14,8 +14,8 @@
 
             var loanAmount = 0;
 
-            if(ctrl.model.PurchasePrice)
-                loanAmount += parseFloat(ctrl.model.PurchasePrice);
+            if(ctrl.model.CashPrice)
+                loanAmount += parseFloat(ctrl.model.CashPrice);
 
             if(ctrl.model.Deposit)
                 loanAmount -= parseFloat(ctrl.model.Deposit);

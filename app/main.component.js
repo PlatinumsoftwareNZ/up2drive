@@ -1,9 +1,10 @@
 (function (angular) {
     'use strict';
-    function mainController($moment,optionsService, applicationService) {
-        var ctrl = this;
+    function mainController($location, $moment, persistenceService, optionsService) {
+        var ctrl = this;        
 
-        ctrl.stage = 1;
+        ctrl.stage = 3;
+        
         ctrl.stageDescriptions = [
             "Quote",
             "Tell us more about you and your vehicle",
@@ -12,30 +13,32 @@
         ];
 
         ctrl.model = {
+            SchemaVersion: '1.0', //This is the schema version to tell the API what to expect
             //Personal details
-            Term: optionsService.GetTermOptions()[0],
+            Term: optionsService.GetTermOptions()[0].value,
+            CashPrice: 12333,
 
             //About
-            PurchasePrice: null,//123,
-            FirstName: null,//'bob',
-            MiddleName: null,//'botty',
-            LastName: null,//'bottit',
-            PersonalEmail: null,//'bob@bobby.bob',
-            MobilePhoneNumber: null,//'007bobbob',
+            PurchasePrice: null,
+            FirstName: null,
+            MiddleName: null,
+            LastName: null,
+            PreferredName: null,
+            PersonalEmail: null,
+            MobilePhoneNumber: null,
 
             //About testing
-            // PurchasePrice: 123,
             // FirstName: 'bob',
             // MiddleName: 'botty',
             // LastName: 'bottit',
-            // PreferredName: 'Preferred',
+            // PreferredName: 'The Bob',
             // PersonalEmail: 'bob@bobby.bob',
             // MobilePhoneNumber: '007bobbob',
 
-            Deposit: 0,
+            Deposit: 1233,
             Gender: optionsService.GetGenderOptions()[0],
             DateOfBirth: moment().subtract(25, 'year').toDate(),
-            RelationshipStatus: optionsService.GetRelationshipStatusOptions()[0],
+            MaritalStatus: optionsService.GetMaritalStatusOptions()[0],
             NewVehicleDetailType: optionsService.GetNewVehicleDetailTypeOptions()[0],
             NewVehicleData: null, //trademe listing number, registration number etc
             NewVehicleDetails: {
@@ -54,9 +57,9 @@
                 Make: '',
                 Model: ''
             },
-            VehicleToTrade: false,
-            NzBorn: false,
-            CountryBornIn: 'New Zealand',
+            VehicleToTrade: 'Yes',
+            IsNzResident: 'Yes',
+            originCountry: 'New Zealand',
             DriverLicenceType: optionsService.GetDriverLicenceOptions()[0],
             CreditHistoryType: optionsService.GetCreditHistoryOptions()[0],
 
@@ -153,14 +156,17 @@
             ctrl.stage--;
         };
 
-        ctrl.Save = function () {
+        ctrl.ApplyNow = function(){
+            ctrl.stage = -1;
+            
             var application = null;
 
-            applicationService.Save()
+            persistenceService.SubmitNow(ctrl.model)
                 .then(function (response) {
-                    //TODO
+                    ctrl.stage = -2; //Display confirm
                 }, function (response) {
-                    //TODO
+                    ctrl.stage = -2; //Display confirm
+                    console.log(response.data);
                 });
         }
 
@@ -175,7 +181,7 @@
 
     angular.module('consumerApp').component('main', {
         templateUrl: 'app/main.html',
-        controller: ['$moment', 'optionsService', 'applicationService', mainController]
+        controller: ['$location', '$moment', 'persistenceService', 'optionsService', mainController]
     });
 })(window.angular);
 
