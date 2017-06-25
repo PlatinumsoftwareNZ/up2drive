@@ -16,7 +16,7 @@
             SchemaVersion: '1.0', //This is the schema version to tell the API what to expect
             //Personal details
             Term: optionsService.GetTermOptions()[0].value,
-            CashPrice: 12333,
+            CashPrice: 0,
 
             //About
             PurchasePrice: null,
@@ -35,7 +35,7 @@
             // PersonalEmail: 'bob@bobby.bob',
             // MobilePhoneNumber: '007bobbob',
 
-            Deposit: 1233,
+            Deposit: 0,
             Gender: optionsService.GetGenderOptions()[0],
             DateOfBirth: moment().subtract(25, 'year').toDate(),
             MaritalStatus: optionsService.GetMaritalStatusOptions()[0],
