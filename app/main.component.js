@@ -3,7 +3,7 @@
     function mainController($location, $moment, persistenceService, optionsService) {
         var ctrl = this;        
 
-        ctrl.stage = 3;
+        ctrl.stage = 1;
         
         ctrl.stageDescriptions = [
             "Quote",
