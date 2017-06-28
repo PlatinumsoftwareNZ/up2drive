@@ -8,7 +8,8 @@
         <financials ng-class="'slide-left'" ng-show="$ctrl.stage===4" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></financials>
         
         <working ng-class="'slide-left'" ng-show="$ctrl.stage === -1"></working>
-        <confirm ng-class="'slide-left'" ng-show="$ctrl.stage === -2" first-name="$ctrl.model.FirstName" preferred-name="$ctrl.model.PreferredName"></confirm>
+        <confirm ng-class="'slide-left'" ng-show="$ctrl.stage === -2" price-quote="$ctrl.priceQuote"
+            first-name="$ctrl.model.FirstName" preferred-name="$ctrl.model.PreferredName"></confirm>
 
         <div class="container-fluid">
 
