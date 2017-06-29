@@ -1,74 +1,103 @@
-<form id="pd" class="container-fluid" ng-submit="$ctrl.FormSubmit()">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="input-container mb-4 mt-3">
-                <label>Gender</label>
+<div class="container-fluid">
+    <form id="pd" class="form-horizontal" ng-submit="$ctrl.FormSubmit()">
+        <div class="form-group">
+            <label for="Term of loan" class="col-sm-2 control-label">Term of loan</label>
+            <div class="col-sm-10">
+                <select name="Term" class="form-control" ng-options="option.value as option.text for option in $ctrl.TermOptions" ng-model="$ctrl.model.Term"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Gender</label>
+            <div class="col-sm-10">
                 <select name="Gender" class="form-control" ng-options="option as option for option in $ctrl.GenderOptions" ng-model="$ctrl.model.Gender">
                     </select>
             </div>
-            <div class="input-container mb-4 mt-3">
-                <label>Date of Birth</label>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Date of Birth</label>
+            <div class="col-sm-10">
+
                 <date-dropdown value="$ctrl.model.DateOfBirth"></date-dropdown>
             </div>
-            <div class="input-container mb-4 mt-3">
-                <label>Relationship status?</label>
+        </div>
+        <div class="form-group">
+
+            <label class="col-sm-2 control-label">Relationship status?</label>
+            <div class="col-sm-10">
+
                 <select name="MaritalStatus" class="form-control" ng-options="option as option for option in $ctrl.MaritalStatusOptions"
                     ng-model="$ctrl.model.MaritalStatus">
-                    </select>
+                </select>
             </div>
-            <div class="input-container mb-4 mt-3">
-                <label>Tell us what you know about your new vehicle</label>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Tell us what you know about your new vehicle</label>
+            <div class="col-sm-10">
                 <select name="NewVehicleDetailType" class="form-control" ng-options="option as option for option in $ctrl.NewVehicleDetailTypeOptions"
                     ng-model="$ctrl.model.NewVehicleDetailType">
-                    </select>
+                </select>
             </div>
-            <div class="input-container mb-4" ng-if="$ctrl.DisplayNewYearMakeModel()">
+        </div>
+        <div class="form-group" ng-if="$ctrl.DisplayNewYearMakeModel()">
+            <div class="col-md-offset-2">
                 <year-make-model prefix="'New Vehicle'" model="$ctrl.model.NewVehicleDetails"></year-make-model>
             </div>
-            <div class="input-container" ng-if="$ctrl.DisplayNewDetails()">
-                <input required type="text" ng-model="$ctrl.model.NewVehicleData" />
-                <label name="NewVehicleData" class="rel">{{$ctrl.model.NewVehicleDetailType}}</label>
-            </div>
-            <div class="input-container mb-4 mt-3">
-                <label>Do you have a vehicle to trade?</label>
+        </div>
+        <div class="form-group" ng-if="$ctrl.DisplayNewDetails()">
+            <input required type="text" ng-model="$ctrl.model.NewVehicleData" />
+            <label name="NewVehicleData" class="rel">{{$ctrl.model.NewVehicleDetailType}}</label>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Do you have a vehicle to trade?</label>
+            <div class="col-sm-10">
                 <select name="VehicleToTrade" class="form-control" ng-options="option.value as option.text for option in $ctrl.YesNoOptions"
                     ng-model="$ctrl.model.VehicleToTrade">
                     </select>
             </div>
-            <div class="input-container mb-4" ng-if="$ctrl.model.VehicleToTrade">
-                <year-make-model prefix="'Trade Vehicle'" model="$ctrl.model.TradeVehicleDetails"></year-make-model>
-            </div>
-            <div class="input-container mb-4 mt-3">
-                <label>Are you a New Zealand resident?</label>
+        </div>
+        <div class="form-group" ng-if="$ctrl.model.VehicleToTrade">
+            <year-make-model prefix="'Trade Vehicle'" model="$ctrl.model.TradeVehicleDetails"></year-make-model>
+        </div>
+        <div class="form-group" ng-if="$ctrl.model.VehicleToTrade">
+
+            <label class="col-sm-2 control-label">Are you a New Zealand resident?</label>
+            <div class="col-sm-10">
                 <select name="NzBorn" class="form-control" ng-options="option.value as option.text for option in $ctrl.YesNoOptions" ng-model="$ctrl.model.IsNzResident">
                     </select>
             </div>
-            <div class="input-container mb-4" style="margin-top: 10px" ng-hide="$ctrl.model.NzBorn">
-                <label>What country were you born in?</label>
+        </div>
+        <div class="form-group" ng-hide="$ctrl.model.NzBorn">
+            <label class="col-sm-2 control-label">What country were you born in?</label>
+            <div class="col-sm-10">
                 <select name="originCountry" class="form-control" ng-options="option.name as option.name for option in $ctrl.CountryOptions"
                     ng-model="$ctrl.model.originCountry">
                     </select>
             </div>
-            <div class="input-container mb-4 mt-3">
-                <label>What license do you have?</label>
+        </div>
+        <div class="form-group" ng-hide="$ctrl.model.NzBorn">
+            <label class="col-sm-2 control-label">What license do you have?</label>
+            <div class="col-sm-10">
                 <select name="DriverLicenceType" class="form-control" ng-options="option as option for option in $ctrl.DriverLicenceOptions"
                     ng-model="$ctrl.model.DriverLicenceType">
-                    </select>
+                </select>
             </div>
-            <div class="input-container mb-4 mt-3">
-                <label>Do you know a little about your credit history?</label>
+        </div>
+        <div class="form-group" ng-hide="$ctrl.model.NzBorn">
+            <label class="col-sm-2 control-label">Do you know a little about your credit history?</label>
+            <div class="col-sm-10">
                 <select name="CreditHistoryType" class="form-control" ng-options="option as option for option in $ctrl.CreditHistoryOptions"
                     ng-model="$ctrl.model.CreditHistoryType">
                     </select>
             </div>
         </div>
+</div>
+</div>
+<div class="row mt-5 mb-3">
+    <div class="col-xs-6">
+        <buton class="btn btn-back" ng-click="$ctrl.RequestBack()">Back</buton>
     </div>
-    <div class="row mt-5 mb-3">
-        <div class="col-xs-6">
-            <buton class="btn btn-back" ng-click="$ctrl.RequestBack()">Back</buton>
-        </div>
-        <div class="col-xs-6">
-            <input type="submit" value="Next" />
-        </div>
+    <div class="col-xs-6">
+        <input type="submit" value="Next" />
     </div>
+</div>
 </form>

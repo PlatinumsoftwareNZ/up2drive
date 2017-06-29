@@ -1,57 +1,79 @@
-<form id="pd" class="container-fluid" ng-submit="$ctrl.FormSubmit()">
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="input-container mb-4" style="margin-top: 10px">
-                <label>Term of loan</label>
-                <select name="Term" class="form-control" ng-options="option.value as option.text for option in $ctrl.TermOptions" ng-model="$ctrl.model.Term">
-                </select>
-            </div>
-            <div class="input-container">
-                <input required type="number" ng-model="$ctrl.model.CashPrice" />
-                <label class="rel">Purchase Price $</label>
-            </div>
-            <div class="input-container">
-                <input type="number" ng-model="$ctrl.model.Deposit" />
-                <label class="rel">Deposit $</label>
-            </div>
-            <div class="input-container mb-4">
-                <label>Loan Amount</label>
-                <div class="text-4">{{$ctrl.GetLoanAmount() | currency}}</div>
-            </div>        
-            <div class="input-container mb-4">
-                <label>Monthly Payments</label>
-                <div class="text-4">{{$ctrl.GetMonthlyPayments() | currency}}</div>
-            </div>            
-            <div class="input-container">
-                <input required type="text" ng-model="$ctrl.model.FirstName" />
-                <label class="rel">First Name</label>
-            </div>
-            <div class="input-container">
-                <input type="text" ng-model="$ctrl.model.MiddleName" />
-                <label class="rel">Middle Name</label>
-            </div>
-            <div class="input-container">
-                <input required type="text" ng-model="$ctrl.model.LastName" />
-                <label class="rel">Last Name</label>
-            </div>
-            <div class="input-container">
-                <input type="text" ng-model="$ctrl.model.PreferredName" />
-                <label class="rel">Preferred Name</label>
-            </div>
-            <div class="input-container">
-                <input required type="text" ng-model="$ctrl.model.MobilePhoneNumber" />
-                <label class="rel">Mobile Number</label>
-            </div>
-            <div class="input-container">
-                <input required type="text" ng-model="$ctrl.model.PersonalEmail" />
-                <label class="rel">Email</label>
-            </div>
-        </div>
-    </div>
 
-    <div class="row mt-5 mb-3">
-        <div class="col-xs-offset-6 col-xs-6">
-            <input type="submit" value="Next" />
-        </div>
+<div class="container-fluid">
+<form id="pd" class="form-horizontal" ng-submit="$ctrl.FormSubmit()">
+  <div class="form-group">
+    <label for="Term of loan" class="col-sm-2 control-label">Term of loan</label>
+    <div class="col-sm-10">
+        <select name="Term" class="form-control" ng-options="option.value as option.text for option in $ctrl.TermOptions" ng-model="$ctrl.model.Term"></select>
+    </div>
+  </div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Purchase Price $</label>      
+    <div class="col-sm-10">
+        <input required type="number" class="form-control" ng-model="$ctrl.model.CashPrice" />
+    </div>
+</div>
+    
+<div class="form-group">
+    <label class="col-sm-2 control-label">Deposit $</label>
+    <div class="col-sm-10">
+        <input type="number" class="form-control" ng-model="$ctrl.model.Deposit" />
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Loan Amount</label>
+    <div class="text-4">{{$ctrl.GetLoanAmount() | currency}}</div>
+</div>
+<div class="form-group">
+    <label class="col-sm-2 control-label">Monthly Payments</label>
+    <div class="text-4">{{$ctrl.GetMonthlyPayments() | currency}}</div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label">First Name</label>
+    <div class="col-sm-10">
+        <input required type="text" class="form-control" ng-model="$ctrl.model.FirstName" />
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label" >Middle Name</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" ng-model="$ctrl.model.MiddleName" />
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label" >Last Name</label>
+    <div class="col-sm-10">
+        <input required type="text" class="form-control" ng-model="$ctrl.model.LastName" />
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label" >Preferred Name</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" ng-model="$ctrl.model.PreferredName" />
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label" >Mobile Number</label>
+    <div class="col-sm-10">
+        <input required type="text" class="form-control" ng-model="$ctrl.model.MobilePhoneNumber" />
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-2 control-label" >Email</label>
+    <div class="col-sm-10">
+        <input required type="text" class="form-control" ng-model="$ctrl.model.PersonalEmail" />
+    </div>
+</div>
+
+    <div class=-group"form">
+    <div class="col-sm-10">
+        <input type="submit" value="Next" />
     </div>
 </form>
+    </div>
