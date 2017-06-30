@@ -3,7 +3,7 @@
 <div class="mb-5">
     <div class="card">
         <personal-details ng-class="'slide-left'" ng-show="$ctrl.stage===1" model="$ctrl.model" next="$ctrl.PersonalDetailsNext()"></personal-details>
-        <about ng-class="'slide-left'" ng-show="$ctrl.stage===2" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></about>
+        <about ng-class="'slide-left'" ng-if="$ctrl.stage===2" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></about>
         <more-about ng-class="'slide-left'" ng-show="$ctrl.stage===3" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></more-about>
         <financials ng-class="'slide-left'" ng-show="$ctrl.stage===4" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></financials>
         
@@ -14,6 +14,7 @@
 
             <div class="row mt-5 mb-3">
                 <div class="col-xs-offset-6 col-xs-6">
+                    <button class="btn btn-default" ng-show="$ctrl.stage===1" ng-click="$ctrl.ApplyNow()">Continue my application online</button>
                     <buton class="btn btn-back" ng-show="$ctrl.stage===1" ng-click="$ctrl.ApplyNow()">Get Quote Now</buton>
                     <buton class="btn btn-back" ng-show="$ctrl.stage >= 3" ng-click="$ctrl.ApplyNow()">Apply Now</buton>
                 </div>

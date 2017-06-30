@@ -1,9 +1,18 @@
 <div class="container-fluid">
     <form id="pd" class="form-horizontal" ng-submit="$ctrl.FormSubmit()">
         <div class="form-group">
+            <label class="col-sm-2 control-label">Loan Amount</label>
+            <div class="text-4">{{$ctrl.GetLoanAmount() | currency}}</div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Monthly Payments</label>
+            <div class="text-4">{{$ctrl.GetMonthlyPayments() | currency}}</div>
+        </div>
+        <div class="form-group">
             <label for="Term of loan" class="col-sm-2 control-label">Term of loan</label>
             <div class="col-sm-10">
-                <select name="Term" class="form-control" ng-options="option.value as option.text for option in $ctrl.TermOptions" ng-model="$ctrl.model.Term"></select>
+                <select name="Term" class="form-control" ng-options="option.value as option.text for option in $ctrl.TermOptions track by option.value"
+                    ng-model="$ctrl.model.Term">{{$ctrl.model.Term}}</select>
             </div>
         </div>
         <div class="form-group">
@@ -34,7 +43,7 @@
             <label class="col-sm-2 control-label">Tell us what you know about your new vehicle</label>
             <div class="col-sm-10">
                 <select name="NewVehicleDetailType" class="form-control" ng-options="option as option for option in $ctrl.NewVehicleDetailTypeOptions"
-                    ng-model="$ctrl.model.NewVehicleDetailType">
+                    ng-model="$ctrl.model.NewVehicleDetailType">{}
                 </select>
             </div>
         </div>

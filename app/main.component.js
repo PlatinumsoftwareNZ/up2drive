@@ -16,7 +16,7 @@
             SchemaVersion: '1.0', //This is the schema version to tell the API what to expect
             //Personal details
             Term: optionsService.GetTermOptions()[0].value,
-            CashPrice: 0,
+            CashPrice: null,
 
             //About
             PurchasePrice: null,
@@ -35,7 +35,7 @@
             // PersonalEmail: 'bob@bobby.bob',
             // MobilePhoneNumber: '007bobbob',
 
-            Deposit: 0,
+            Deposit: null,
             Gender: optionsService.GetGenderOptions()[0],
             DateOfBirth: moment().subtract(25, 'year').toDate(),
             MaritalStatus: optionsService.GetMaritalStatusOptions()[0],
@@ -156,6 +156,8 @@
             ctrl.stage--;
         };
 
+        
+
         ctrl.ApplyNow = function(){
             ctrl.stage = -1;
             
@@ -163,7 +165,10 @@
 
             persistenceService.SubmitNow(ctrl.model)
                 .then(function (response) {
-                    ctrl.stage = -2; //Display confirm
+                    if (response.data.CommittedId) {
+                        ctrl.model.CommittedId = response.data.CommittedId;
+                    }
+                    ctrl.stage = 2;
                 }, function (response) {
                     ctrl.stage = -2; //Display confirm
                     console.log(response.data);

@@ -15,7 +15,7 @@
 
         self.GetApiBaseUrl = function(){
             if(self.mode === 0)
-                return "http://localhost:1319/api/";
+                return "https://localhost:44335/api/";
             else
                 return "http://platinumapi.azurewebsites.net/api/";
         }
