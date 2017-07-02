@@ -36,62 +36,62 @@
             // MobilePhoneNumber: '007bobbob',
 
             Deposit: null,
-            Gender: optionsService.GetGenderOptions()[0],
+            //Gender: optionsService.GetGenderOptions()[0],
             DateOfBirth: moment().subtract(25, 'year').toDate(),
-            MaritalStatus: optionsService.GetMaritalStatusOptions()[0],
-            NewVehicleDetailType: optionsService.GetNewVehicleDetailTypeOptions()[0],
+            //MaritalStatus: optionsService.GetMaritalStatusOptions()[0],
+            //NewVehicleDetailType: optionsService.GetNewVehicleDetailTypeOptions()[0],
             NewVehicleData: null, //trademe listing number, registration number etc
-            NewVehicleDetails: {
-                Year: 2010,
-                Make: '',
-                Model: ''
-            },
+            // NewVehicleDetails: {
+            //     Year: 2010,
+            //     Make: '',
+            //     Model: ''
+            // },
             // testing data
             // NewVehicleDetails: {
             //     Year: 2010,
             //     Make: 'Some Manufacturer',
             //     Model: 'Car Model'
             // },
-            TradeVehicleDetails: {
-                Year: 2010,
-                Make: '',
-                Model: ''
-            },
-            VehicleToTrade: 'Yes',
+            // TradeVehicleDetails: {
+            //     Year: 2010,
+            //     Make: '',
+            //     Model: ''
+            // },
+            //VehicleToTrade: 'Yes',
             IsNzResident: 'Yes',
             originCountry: 'New Zealand',
-            DriverLicenceType: optionsService.GetDriverLicenceOptions()[0],
-            CreditHistoryType: optionsService.GetCreditHistoryOptions()[0],
+            // DriverLicenceType: optionsService.GetDriverLicenceOptions()[0],
+            // CreditHistoryType: optionsService.GetCreditHistoryOptions()[0],
 
             //More about
-            CurrentAddressType: optionsService.GetCurrentAddressTypeOptions()[0].value,
-            CurrentAddress: {
-                StreetNumber: null,
-                StreetName: null,
-                Suburb: null,
-                State: null,
-                Country: null,
-                PostCode: null
-            },
-            CurrentAddressYears: null,
-            CurrentAddressMonths: null,
-            CurrentOccupation: {
-                EmployerName: null,
-                Occupation: null,
-                Years: 0,
-                Months: 0
-            },
-            PreviousAddress: {
-                StreetNumber: null,
-                StreetName: null,
-                Suburb: null,
-                State: null,
-                Country: null,
-                PostCode: null
-            },
-            PreviousOccupation: {
-                EmployerName: null
-            },
+            //CurrentAddressType: optionsService.GetCurrentAddressTypeOptions()[0].value,
+            // CurrentAddress: {
+            //     StreetNumber: null,
+            //     StreetName: null,
+            //     Suburb: null,
+            //     State: null,
+            //     Country: null,
+            //     PostCode: null
+            // },
+            // CurrentAddressYears: null,
+            // CurrentAddressMonths: null,
+            // CurrentOccupation: {
+            //     EmployerName: null,
+            //     Occupation: null,
+            //     Years: 0,
+            //     Months: 0
+            // },
+            // PreviousAddress: {
+            //     StreetNumber: null,
+            //     StreetName: null,
+            //     Suburb: null,
+            //     State: null,
+            //     Country: null,
+            //     PostCode: null
+            // },
+            // PreviousOccupation: {
+            //     EmployerName: null
+            // },
 
             // testing data
             // CurrentAddress: {

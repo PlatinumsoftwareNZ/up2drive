@@ -14,6 +14,11 @@
             ctrl.AddressEntry = null;
         }
 
+        ctrl.mapOptions = {
+            componentRestrictions: { country: 'NZ' },
+            types: ['geocode']
+        };
+
         ctrl.componentForm = {
             street_number: 'short_name',
             route: 'long_name',

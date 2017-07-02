@@ -43,8 +43,8 @@
 
         self.GetYesNoOptions = function () {
             return [
-                { value: 'No', text: 'No' },
-                { value: 'Yes', text: 'Yes' }
+                { value: false, text: 'No' },
+                { value: true, text: 'Yes' }
             ];
         }
 

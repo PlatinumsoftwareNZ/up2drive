@@ -8,14 +8,18 @@
         ctrl.CurrentAddressTypeOptions = optionsService.GetCurrentAddressTypeOptions();
 
         ctrl.DisplayPreviousAddress = function () {
-            return ctrl.YearValueIsOverOrEqualToAmount(ctrl.model.CurrentAddressYears, 3);
+            return ctrl.model.CurrentAddressYears && !ctrl.YearValueIsOverOrEqualToAmount(ctrl.model.CurrentAddressYears, 3);
         }
 
         ctrl.DisplayPreviousOccupation = function () {
-            return ctrl.YearValueIsOverOrEqualToAmount(ctrl.model.CurrentOccupation.Years, 3);
+            return ctrl.model.CurrentOccupation && ctrl.YearValueIsOverOrEqualToAmount(ctrl.model.CurrentOccupation.Years, 3);
         }
 
         ctrl.YearValueIsOverOrEqualToAmount = function (input, amount) {
+
+           if (!input) 
+            return false;
+
             var intInput = parseInt(input);
 
             if (intInput)
