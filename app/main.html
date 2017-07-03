@@ -1,26 +1,31 @@
-<h1 ng-show="$ctrl.stage > 0">Stage {{$ctrl.stage}} - {{$ctrl.stageDescriptions[$ctrl.stage - 1]}}</h1>
-
-<div class="mb-5">
-    <div class="card">
+<ol class="track-progress" data-steps="4">
+   <li ng-class="{'done': $ctrl.stage >= 1}">
+     <span>Your purchase</span>
+     </li><!--
+    --><li ng-class="{'done': $ctrl.stage >= 2}">
+     <span>Quote</span>
+   </li><!--
+    --><li ng-class="{'done': $ctrl.stage >= 3}">
+     <span>About you</span>
+   </li><!--
+    --><li ng-class="{'done': $ctrl.stage == 4}">
+     <span>Your finances</span>
+     <i></i>
+   </li>
+ </ol>
+ <div class="container-fluid quote-container">
+    <form id="pd" class="form-horizontal" ng-submit="$ctrl.FormSubmit()">
+        
         <personal-details ng-class="'slide-left'" ng-show="$ctrl.stage===1" model="$ctrl.model" next="$ctrl.PersonalDetailsNext()"></personal-details>
-        <about ng-class="'slide-left'" ng-if="$ctrl.stage===2" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></about>
-        <more-about ng-class="'slide-left'" ng-show="$ctrl.stage===3" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></more-about>
-        <financials ng-class="'slide-left'" ng-show="$ctrl.stage===4" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></financials>
+        <quote ng-class="'slide-left'" ng-if="$ctrl.stage===2" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></quote>        
+        <about ng-class="'slide-left'" ng-if="$ctrl.stage===3" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></about>
+        <more-about ng-class="'slide-left'" ng-show="$ctrl.stage===4" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></more-about>
+        <financials ng-class="'slide-left'" ng-show="$ctrl.stage===5" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></financials>
         
         <working ng-class="'slide-left'" ng-show="$ctrl.stage === -1"></working>
         <confirm ng-class="'slide-left'" ng-show="$ctrl.stage === -2" first-name="$ctrl.model.FirstName" preferred-name="$ctrl.model.PreferredName"></confirm>
-
-        <div class="container-fluid">
-
-            <div class="row mt-5 mb-3">
-                <div class="col-xs-offset-6 col-xs-6">
-                    <button class="btn btn-default" ng-show="$ctrl.stage===1" ng-click="$ctrl.ApplyNow()">Continue my application online</button>
-                    <buton class="btn btn-back" ng-show="$ctrl.stage===1" ng-click="$ctrl.ApplyNow()">Get Quote Now</buton>
-                    <buton class="btn btn-back" ng-show="$ctrl.stage >= 3" ng-click="$ctrl.ApplyNow()">Apply Now</buton>
-                </div>
-            </div>
-        </div>
-        <pre>{{$ctrl.model | json}}</pre>
-    </div>
+    </form>        
 </div>
+<!--<pre>{{$ctrl.model | json}}</pre>-->
+
 

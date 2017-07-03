@@ -176,6 +176,7 @@
         }
 
         ctrl.PersonalDetailsNext = function () {
+            //if ctrl.pd.valid
             ctrl.MoveNext();
         }
 
