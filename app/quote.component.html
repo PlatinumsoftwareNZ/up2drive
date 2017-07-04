@@ -1,11 +1,11 @@
 <div class="quote">
     <div class="panel panel-default">
-        <div class="panel-heading">Loan Calculator</div>
+        <div class="panel-heading">Loan Quote</div>
         <div class="panel-body">
             <div class="form-group">
                 <label for="Term of loan" class="col-sm-4 control-label">Term of loan</label>
                 <div class="col-sm-8">
-                    <select name="Term" class="form-control" ng-options="option.value as option.text for option in $ctrl.TermOptions"
+                    <select ng-disabled="true" name="Term" class="form-control" ng-options="option.value as option.text for option in $ctrl.TermOptions"
                         ng-model="$ctrl.model.Term"></select>
                 </div>
             </div>
@@ -13,14 +13,14 @@
             <div class="form-group">
                 <label class="col-sm-4 control-label">Loan Amount</label>
                 <div class="col-sm-8">
-                    <input required type="number" class="form-control" ng-model="$ctrl.model.CashPrice" />
+                    <p class="form-control-static">{{$ctrl.model.CashPrice | currency}}</p>
                 </div>
             </div>
 
             <div class="form-group">
                 <label class="col-sm-4 control-label">Deposit Amount</label>
                 <div class="col-sm-8">
-                    <input required type="number" class="form-control" ng-model="$ctrl.model.Deposit" />
+                    <p class="form-control-static">{{$ctrl.model.Deposit | currency}}</p>
                 </div>
             </div>
 
@@ -34,8 +34,7 @@
     </div>
 </div>
 <div class="actions">
-    <button class="btn btn-primary" type="button" ng-click="$ctrl.Calculate()">Recalculate</button>
-    <!--<button class="btn btn-default" ng-show="$ctrl.stage===1" ng-click="$ctrl.ApplyNow()">Continue my application online</button>-->
-    <buton class="btn btn-primary" ng-click="$ctrl.next()">Apply for a loan</buton>
-    <!--<buton class="btn btn-back" ng-show="$ctrl.stage >= 3" ng-click="$ctrl.ApplyNow()">Apply Now</buton>-->
+    <!--<button class="btn btn-primary" type="button" ng-click="$ctrl.Calculate()">Recalculate</button>-->
+    <button class="btn btn-primary" ng-click="$ctrl.back()">Back</button>
+    <button class="btn btn-primary" ng-click="$ctrl.next()">Next</button>
 </div>

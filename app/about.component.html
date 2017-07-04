@@ -1,17 +1,19 @@
-<div class="form-group">
+<h3>Personal Details</h3>
+
+<div class="form-group requried">
     <label class="col-sm-4 control-label">Gender</label>
     <div class="col-sm-8">
-        <select name="Gender" class="form-control" ng-options="option as option for option in $ctrl.GenderOptions" ng-model="$ctrl.model.Gender">
+        <select name="Gender" required class="form-control" ng-options="option as option for option in $ctrl.GenderOptions" ng-model="$ctrl.model.Gender">
                 </select>
     </div>
 </div>
-<div class="form-group">
+<div class="form-group required">
     <label class="col-sm-4 control-label">Date of Birth</label>
     <div class="col-sm-8">
         <date-dropdown value="$ctrl.model.DateOfBirth"></date-dropdown>
     </div>
 </div>
-<div class="form-group">
+<div class="form-group required">
     <label class="col-sm-4 control-label">Relationship status?</label>
     <div class="col-sm-8">
         <select name="MaritalStatus" class="form-control" ng-options="option as option for option in $ctrl.MaritalStatusOptions"
@@ -23,8 +25,7 @@
     <label class="col-sm-4 control-label">Tell us what you know about your new vehicle</label>
     <div class="col-sm-8">
         <select name="NewVehicleDetailType" class="form-control" ng-options="option as option for option in $ctrl.NewVehicleDetailTypeOptions"
-            ng-model="$ctrl.model.NewVehicleDetailType">{}
-            </select>
+            ng-model="$ctrl.model.NewVehicleDetailType"></select>
     </div>
 </div>
 <div ng-if="$ctrl.DisplayNewYearMakeModel()">
@@ -63,8 +64,8 @@
                 </select>
     </div>
 </div>
-<div class="form-group" ng-hide="$ctrl.model.NzBorn">
-    <label class="col-sm-4 control-label">What license do you have?</label>
+<div class="form-group required" ng-hide="$ctrl.model.NzBorn">
+    <label class="col-sm-4 control-label">Driver's Licence</label>
     <div class="col-sm-8">
         <select name="DriverLicenceType" class="form-control" ng-options="option as option for option in $ctrl.DriverLicenceOptions"
             ng-model="$ctrl.model.DriverLicenceType">
@@ -81,6 +82,7 @@
 </div>
 <div class="actions">
     <!--<button class="btn btn-default" ng-show="$ctrl.stage===1" ng-click="$ctrl.ApplyNow()">Continue my application online</button>-->
-    <buton class="btn btn-primary" ng-click="$ctrl.next()">Next</buton>
+    <button class="btn btn-primary" ng-click="$ctrl.back()">Back</button>
+    <button class="btn btn-primary" ng-click="$ctrl.next()">Next</button>
     <!--<buton class="btn btn-back" ng-show="$ctrl.stage >= 3" ng-click="$ctrl.ApplyNow()">Apply Now</buton>-->
 </div>
