@@ -6,7 +6,7 @@
                 <label for="Term of loan" class="col-sm-4 control-label">Term of loan</label>
                 <div class="col-sm-8">
                     <select name="Term" class="form-control" ng-options="option.value as option.text for option in $ctrl.TermOptions"
-                        ng-model="$ctrl.model.Term">{{$ctrl.model.Term}}</select>
+                        ng-model="$ctrl.model.Term"></select>
                 </div>
             </div>
             
@@ -27,13 +27,14 @@
             <div class="form-group">
                 <label class="col-sm-4 control-label">Repayment Amount</label>
                 <div class="col-sm-8">
-                    <p class="form-control-static">{{$ctrl.GetMonthlyPayments() | currency}}</p>
+                    <p class="form-control-static">{{$ctrl.model.MonthlyPayment | currency}}</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <div class="actions">
+    <button class="btn btn-primary" type="button" ng-click="$ctrl.Calculate()">Recalculate</button>
     <!--<button class="btn btn-default" ng-show="$ctrl.stage===1" ng-click="$ctrl.ApplyNow()">Continue my application online</button>-->
     <buton class="btn btn-primary" ng-click="$ctrl.next()">Apply for a loan</buton>
     <!--<buton class="btn btn-back" ng-show="$ctrl.stage >= 3" ng-click="$ctrl.ApplyNow()">Apply Now</buton>-->

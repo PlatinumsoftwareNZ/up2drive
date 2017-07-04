@@ -2,22 +2,8 @@
     'use strict';
     function quoteController(amortisationService, optionsService) {
         var ctrl = this;
-
+        //ctrl.model = ctrl.model;
         ctrl.TermOptions = optionsService.GetTermOptions();
-
-        ctrl.GetLoanAmount = function(){
-            if(!ctrl.model) return 0;
-
-            var loanAmount = 0;
-
-            if(ctrl.model.CashPrice)
-                loanAmount += parseFloat(ctrl.model.CashPrice);
-
-            if(ctrl.model.Deposit)
-                loanAmount -= parseFloat(ctrl.model.Deposit);
-
-            return loanAmount;
-        }
 
         ctrl.GetMonthlyPayments = function(){
             var establishmentFee = 250;
@@ -47,6 +33,9 @@
             return monthlyPayments;
         };
 
+        ctrl.Calculate = function() {
+            ctrl.model.MonthlyPayment = ctrl.GetMonthlyPayments();
+        }
 
         ctrl.RequestBack = function () {
             ctrl.back();
@@ -54,6 +43,10 @@
 
         ctrl.FormSubmit = function () {
             ctrl.next();
+        }
+
+       ctrl.$onInit = function() { 
+            ctrl.Calculate();
         }
     }
 
@@ -65,5 +58,6 @@
             next: '&',
             back: '&'
         },
+        bindToController: true,
     });
 })(window.angular);

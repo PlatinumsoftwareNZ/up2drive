@@ -14,16 +14,15 @@
    </li>
  </ol>
  <div class="container-fluid quote-container">
-    <form id="pd" class="form-horizontal" ng-submit="$ctrl.FormSubmit()">
-        
-        <personal-details ng-class="'slide-left'" ng-show="$ctrl.stage===1" model="$ctrl.model" next="$ctrl.PersonalDetailsNext()"></personal-details>
+    <form name="pd" class="form-horizontal" ng-submit="$ctrl.FormSubmit()" novalidate>
+        <personal-details ng-class="'slide-left'" ng-if="$ctrl.stage===1" model="$ctrl.model" next="$ctrl.PersonalDetailsNext()" form="pd"></personal-details>
         <quote ng-class="'slide-left'" ng-if="$ctrl.stage===2" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></quote>        
         <about ng-class="'slide-left'" ng-if="$ctrl.stage===3" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></about>
-        <more-about ng-class="'slide-left'" ng-show="$ctrl.stage===4" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></more-about>
-        <financials ng-class="'slide-left'" ng-show="$ctrl.stage===5" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></financials>
+        <more-about ng-class="'slide-left'" ng-if="$ctrl.stage===4" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></more-about>
+        <financials ng-class="'slide-left'" ng-if="$ctrl.stage===5" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></financials>
         
-        <working ng-class="'slide-left'" ng-show="$ctrl.stage === -1"></working>
-        <confirm ng-class="'slide-left'" ng-show="$ctrl.stage === -2" first-name="$ctrl.model.FirstName" preferred-name="$ctrl.model.PreferredName"></confirm>
+        <working ng-class="'slide-left'" ng-if="$ctrl.stage === -1"></working>
+        <confirm ng-class="'slide-left'" ng-if="$ctrl.stage === -2" first-name="$ctrl.model.FirstName" preferred-name="$ctrl.model.PreferredName"></confirm>
     </form>        
 </div>
 <!--<pre>{{$ctrl.model | json}}</pre>-->

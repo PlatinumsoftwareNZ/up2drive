@@ -17,6 +17,7 @@
             //Personal details
             Term: optionsService.GetTermOptions()[0].value,
             CashPrice: null,
+            MonthlyPayment: null,
 
             //About
             PurchasePrice: null,

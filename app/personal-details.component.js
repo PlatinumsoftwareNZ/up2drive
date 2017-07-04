@@ -6,11 +6,17 @@
         ctrl.TermOptions = optionsService.GetTermOptions();
 
         ctrl.$onInit = function () {
-
+            
         };
 
         ctrl.FormSubmit = function(){
-            ctrl.next();
+            if (ctrl.form.$valid) {
+                return true;
+            }
+            else  {
+                ctrl.form.$setSubmitted();
+                return false;
+            }
         }
     }
 
@@ -19,7 +25,8 @@
         controller: [ 'optionsService', 'amortisationService', personalDetailsController],
         bindings: {
             model: "<",
-            next: '&'
+            next: '&',
+            form: '<'
         },
     });
 })(window.angular);
