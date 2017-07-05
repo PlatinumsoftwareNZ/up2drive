@@ -66,14 +66,15 @@
 
             //More about
             //CurrentAddressType: optionsService.GetCurrentAddressTypeOptions()[0].value,
-            // CurrentAddress: {
-            //     StreetNumber: null,
-            //     StreetName: null,
-            //     Suburb: null,
-            //     State: null,
-            //     Country: null,
-            //     PostCode: null
-            // },
+            CurrentAddress: {
+                AddressEntry: null,
+                StreetNumber: null,
+                StreetName: null,
+                Suburb: null,
+                State: null,
+                Country: null,
+                PostCode: null
+            },
             // CurrentAddressYears: null,
             // CurrentAddressMonths: null,
              CurrentOccupation: {
@@ -125,26 +126,26 @@
 
             //Financials
             Assets: [
-                { OptionName: 'Home', Value: 0, Display: 'Property Value' },
-                { OptionName: 'Home Contents', Value: 0, Display: 'Home contents value' },
-                { OptionName: 'Car', Value: 0, Display: 'Vehicle(s) Value' },
-                { OptionName: 'Other', Value: 0, Display: 'Other' }
+                { OptionName: 'Home', Value: null, Display: 'Property Value' },
+                { OptionName: 'Home Contents', Value: null, Display: 'Home contents value' },
+                { OptionName: 'Car', Value: null, Display: 'Vehicle(s) Value' },
+                { OptionName: 'Other', Value: null, Display: 'Other' }
             ],
             Liabilities: [
-                { OptionName: 'Mortgage', Value: 0, Display: 'Mortgage Balance' },
-                { OptionName: 'Loan', Value: 0, Display: 'Bank or personal loan' },
-                { OptionName: 'Hire Purchase', Value: 0, Display: 'Hire purchase(s)' },
-                { OptionName: 'Other', Value: 0, Display: 'Other' }
+                { OptionName: 'Mortgage', Value: null, Display: 'Mortgage Balance' },
+                { OptionName: 'Loan', Value: null, Display: 'Bank or personal loan' },
+                { OptionName: 'Hire Purchase', Value: null, Display: 'Hire purchase(s)' },
+                { OptionName: 'Other', Value: null, Display: 'Other' }
             ],
             Income: [
-                { OptionName: 'Take Home Pay', Value: 0, Display: 'What is your take home pay' },
-                { OptionName: 'Spouse Take Home Pay', Value: 0, Display: 'What is your Spouse\'s take home pay' },
-                { OptionName: 'Other', Value: 0, Display: 'Other' }
+                { OptionName: 'Take Home Pay', Value: null, Display: 'What is your take home pay' },
+                { OptionName: 'Spouse Take Home Pay', Value: null, Display: 'What is your Spouse\'s take home pay' },
+                { OptionName: 'Other', Value: null, Display: 'Other' }
             ],
             Expenses: [
-                { OptionName: 'Mortgage', Value: 0, Display: 'Mortgage/rent' },
-                { OptionName: 'Loan', Value: 0, Display: 'Bank or personal loan' },
-                { OptionName: 'Hire Purchase', Value: 0, Display: 'Hire purchase(s)' },
+                { OptionName: 'Mortgage', Value: null, Display: 'Mortgage/rent' },
+                { OptionName: 'Loan', Value: null, Display: 'Bank or personal loan' },
+                { OptionName: 'Hire Purchase', Value: null, Display: 'Hire purchase(s)' },
             ]
         }
 

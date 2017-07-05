@@ -18,14 +18,9 @@
         <personal-details ng-class="'slide-left'" ng-if="$ctrl.stage===1" model="$ctrl.model" next="$ctrl.PersonalDetailsNext()" form="pd"></personal-details>
         <quote ng-class="'slide-left'" ng-if="$ctrl.stage===2" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()" form="pd"></quote>      
         <more-about-you ng-class="'slide-left'" ng-if="$ctrl.stage===3" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()" form="pd"></more-about-you> 
-        <!--<about ng-class="'slide-left'" ng-if="$ctrl.stage===3" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></about>
-        <more-about ng-class="'slide-left'" ng-if="$ctrl.stage===4" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></more-about>-->
-        <financials ng-class="'slide-left'" ng-if="$ctrl.stage===4" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()"></financials>
+        <financials ng-class="'slide-left'" ng-if="$ctrl.stage===4" model="$ctrl.model" next="$ctrl.ApplyNow()" back="$ctrl.MoveBack()"></financials>
         
         <working ng-class="'slide-left'" ng-if="$ctrl.stage === -1"></working>
         <confirm ng-class="'slide-left'" ng-if="$ctrl.stage === -2" first-name="$ctrl.model.FirstName" preferred-name="$ctrl.model.PreferredName"></confirm>
     </form>        
 </div>
-<!--<pre>{{$ctrl.model | json}}</pre>-->
-
-

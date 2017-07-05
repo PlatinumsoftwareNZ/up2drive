@@ -48,7 +48,7 @@
             <label>Years</label>
         </div>
         <div class="col-sm-4">
-            <input name="currentAddressMonths" class="form-control" required type="number" ng-model="$ctrl.model.CurrentAddressMonths"
+            <input name="currentAddressMonths" class="form-control" type="number" ng-model="$ctrl.model.CurrentAddressMonths"
             />
             <label>Months</label>
         </div>
@@ -86,7 +86,7 @@
             <label>Years</label>
         </div>
         <div class="col-sm-4">
-            <input class="form-control" name="currentJobMonths" required type="number" ng-model="$ctrl.model.CurrentOccupation.Months"
+            <input class="form-control" name="currentJobMonths" type="number" ng-model="$ctrl.model.CurrentOccupation.Months"
             />
             <label>Months</label>
         </div>
@@ -118,7 +118,7 @@
     <div class="form-group" ng-if="$ctrl.DisplayNewDetails()">
         <label name="NewVehicleData" class="col-sm-4 control-label">{{$ctrl.model.NewVehicleDetailType}}</label>
         <div class="col-sm-8">
-            <input required type="text" ng-model="$ctrl.model.NewVehicleData" />
+            <input class="form-control input-sm" name="NewVehicleData" type="text" ng-model="$ctrl.model.NewVehicleData" />
         </div>
     </div>
 

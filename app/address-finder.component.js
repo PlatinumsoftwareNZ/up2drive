@@ -4,14 +4,25 @@
         var ctrl = this;
 
         ctrl.AddressEntry = null;
-
+        
         ctrl.AddressEntryChanged = function () {
-            if (!ctrl.AddressEntry || !ctrl.AddressEntry.address_components) return null;
+            var addressEntry = "AddressEntry";
+            
 
+            if (!ctrl.AddressEntry || !ctrl.AddressEntry.address_components) {
+                ctrl.model[addressEntry] = ctrl.AddressEntry;
+                for(var key in ctrl.model) {
+                    if (key !== addressEntry) {
+                        ctrl.model[key] = null;
+                    }
+                }
+                return null;
+            }
+            ctrl.model[addressEntry] = ctrl.AddressEntry.formatted_address;
             ctrl.UpdateDetails(ctrl.AddressEntry);
 
             //Clear
-            ctrl.AddressEntry = null;
+            //ctrl.AddressEntry = null;
         }
 
         ctrl.mapOptions = {
