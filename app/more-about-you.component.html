@@ -1,0 +1,153 @@
+<fieldset>
+    <legend>Personal Details</legend>
+
+    <div class="form-group required" ng-class="{ 'has-error': (($ctrl.form.$submitted || $ctrl.form.gender.$touched) && $ctrl.form.gender.$invalid) }">
+        <label class="col-sm-4 control-label">Gender</label>
+        <div class="col-sm-8">
+            <select required name="gender" class="form-control" ng-options="option as option for option in $ctrl.GenderOptions" ng-model="$ctrl.model.Gender"></select>
+        </div>
+    </div>
+
+    <div class="form-group required" ng-class="{ 'has-error': (($ctrl.form.$submitted || $ctrl.form.dateOfBirth.$touched) && $ctrl.form.dateOfBirth.$invalid) }">
+        <label class="col-sm-4 control-label">Date of Birth</label>
+        <div class="col-sm-8">
+            <input required type="date" class="form-control" placeholder="dd/mm/yyyy" name="dateOfBirth" ng-model="$ctrl.model.DateOfBirth">
+        </div>
+    </div>
+
+    <div class="form-group required" ng-class="{ 'has-error': (($ctrl.form.$submitted || $ctrl.form.DriverLicenceType.$touched) && $ctrl.form.DriverLicenceType.$invalid) }">
+        <label class="col-sm-4 control-label">Driver's Licence</label>
+        <div class="col-sm-8">
+            <select required name="DriverLicenceType" class="form-control" ng-options="option as option for option in $ctrl.DriverLicenceOptions"
+                ng-model="$ctrl.model.DriverLicenceType">
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group required" ng-class="{ 'has-error': (($ctrl.form.$submitted || $ctrl.form.currentLivingSituation.$touched) && $ctrl.form.currentLivingSituation.$invalid) }">
+        <label class="col-sm-4 control-label">What is your current living situation?</label>
+        <div class="col-sm-8">
+            <select required name="currentLivingSituation" class="form-control" ng-options="option.value as option.text for option in $ctrl.CurrentAddressTypeOptions"
+                ng-model="$ctrl.model.CurrentAddressType">
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group required" ng-class="{ 'has-error': (($ctrl.form.$submitted || $ctrl.form.currentAddress.$touched) && $ctrl.form.currentAddress.$invalid) }">
+        <label class="col-sm-4 control-label">Current Address?</label>
+        <div class="col-sm-8">
+            <address-finder required="true" name="currentAddress" label="'Current Address'" model="$ctrl.model.CurrentAddress"></address-finder>
+        </div>
+    </div>
+
+    <div class="form-group required" ng-class="{ 'has-error': (($ctrl.form.$submitted || $ctrl.form.currentAddressYears.$touched) && $ctrl.form.currentAddressYears.$invalid) }">
+        <label class="col-sm-4 control-label">Time at current address</label>
+        <div class="col-sm-4">
+            <input name="currentAddressYears" class="form-control" required type="number" ng-model="$ctrl.model.CurrentAddressYears"
+            />
+            <label>Years</label>
+        </div>
+        <div class="col-sm-4">
+            <input name="currentAddressMonths" class="form-control" required type="number" ng-model="$ctrl.model.CurrentAddressMonths"
+            />
+            <label>Months</label>
+        </div>
+    </div>
+
+    <div class="form-group" ng-if="$ctrl.model.CurrentAddressYears && $ctrl.model.CurrentAddressYears < 3">
+        <label class="col-sm-4 control-label">Previous Address</label>
+        <div class="col-sm-8">
+            <address-finder model="$ctrl.model.PreviousAddress"></address-finder>
+        </div>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Employment Details</legend>
+    <div class="form-group required" ng-class="{ 'has-error': (($ctrl.form.$submitted || $ctrl.form.occupation.$touched) && $ctrl.form.occupation.$invalid) }">
+        <label class="col-sm-4 control-label">Occupation</label>
+        <div class="col-sm-8">
+            <input required type="text" class="form-control" placeholder="" name="occupation" ng-model="$ctrl.model.CurrentOccupation.Occupation">
+        </div>
+    </div>
+
+    <div class="form-group required" ng-class="{ 'has-error': (($ctrl.form.$submitted || $ctrl.form.employer.$touched) && $ctrl.form.employer.$invalid) }">
+        <label class="col-sm-4 control-label">Employer</label>
+        <div class="col-sm-8">
+            <input class="form-control" required type="text" name="employer" ng-model="$ctrl.model.CurrentOccupation.EmployerName" />
+        </div>
+    </div>
+
+    <div class="form-group required" ng-class="{ 'has-error': (($ctrl.form.$submitted || $ctrl.form.currentJobYears.$touched) && $ctrl.form.currentJobYears.$invalid) }">
+        <label class="col-sm-4 control-label">Time at current job</label>
+        <div class="col-sm-4">
+            <input class="form-control" name="currentJobYears" required type="number" ng-model="$ctrl.model.CurrentOccupation.Years"
+            />
+            <label>Years</label>
+        </div>
+        <div class="col-sm-4">
+            <input class="form-control" name="currentJobMonths" required type="number" ng-model="$ctrl.model.CurrentOccupation.Months"
+            />
+            <label>Months</label>
+        </div>
+    </div>
+
+    <div class="form-group required" ng-if="$ctrl.model.CurrentOccupation.Years && $ctrl.model.CurrentOccupation.Years < 3">
+        <label class="col-sm-4 control-label">Who did you work for before that?</label>
+        <div class="col-sm-8">
+            <input class="form-control" model="$ctrl.model.PreviousOccupation.EmployerName"></input>
+        </div>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Vehicle Details</legend>
+
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Tell us what you know about your new vehicle</label>
+        <div class="col-sm-8">
+            <select name="NewVehicleDetailType" class="form-control" ng-options="option as option for option in $ctrl.NewVehicleDetailTypeOptions"
+                ng-model="$ctrl.model.NewVehicleDetailType"></select>
+        </div>
+    </div>
+
+    <div ng-if="$ctrl.DisplayNewYearMakeModel()">
+        <year-make-model prefix="'New Vehicle'" model="$ctrl.model.NewVehicleDetails"></year-make-model>
+    </div>
+
+    <div class="form-group" ng-if="$ctrl.DisplayNewDetails()">
+        <label name="NewVehicleData" class="col-sm-4 control-label">{{$ctrl.model.NewVehicleDetailType}}</label>
+        <div class="col-sm-8">
+            <input required type="text" ng-model="$ctrl.model.NewVehicleData" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Do you have a vehicle to trade?</label>
+        <div class="col-sm-8">
+            <select name="VehicleToTrade" class="form-control" ng-options="option.value as option.text for option in $ctrl.YesNoOptions"
+                ng-model="$ctrl.model.VehicleToTrade">
+            </select>
+        </div>
+    </div>
+</fieldset>
+
+<fieldset ng-if="$ctrl.model.VehicleToTrade">
+    <legend>Trade Vehicle Details</legend>
+    <year-make-model prefix="'Trade Vehicle'" model="$ctrl.model.TradeVehicleDetails"></year-make-model>
+
+    <div class="form-group" ng-if="$ctrl.model.VehicleToTrade">
+        <label class="col-sm-4 control-label">Are you a New Zealand resident?</label>
+        <div class="col-sm-8">
+            <select name="NzBorn" class="form-control" ng-options="option.value as option.text for option in $ctrl.YesNoOptions" ng-model="$ctrl.model.IsNzResident">
+            </select>
+        </div>
+    </div>
+</fieldset>
+
+<div class="actions">
+    <!--<button class="btn btn-default" ng-show="$ctrl.stage===1" ng-click="$ctrl.ApplyNow()">Continue my application online</button>-->
+    <button class="btn btn-primary" ng-click="$ctrl.back()">Back</button>
+    <button type="button" class="btn btn-primary" ng-click="$ctrl.FormSubmit() && $ctrl.next()">Next</button>
+    <!--<buton class="btn btn-back" ng-show="$ctrl.stage >= 3" ng-click="$ctrl.ApplyNow()">Apply Now</buton>-->
+</div>

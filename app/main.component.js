@@ -76,12 +76,12 @@
             // },
             // CurrentAddressYears: null,
             // CurrentAddressMonths: null,
-            // CurrentOccupation: {
-            //     EmployerName: null,
-            //     Occupation: null,
-            //     Years: 0,
-            //     Months: 0
-            // },
+             CurrentOccupation: {
+                 EmployerName: null,
+                 Occupation: null,
+                 Years: null,
+                 Months: null
+             },
             // PreviousAddress: {
             //     StreetNumber: null,
             //     StreetName: null,
@@ -90,9 +90,9 @@
             //     Country: null,
             //     PostCode: null
             // },
-            // PreviousOccupation: {
-            //     EmployerName: null
-            // },
+            PreviousOccupation: {
+                EmployerName: null
+            },
 
             // testing data
             // CurrentAddress: {

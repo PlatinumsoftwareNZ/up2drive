@@ -58,6 +58,8 @@
         templateUrl: 'app/address-finder.component.html',
         controller: [addressFinderController],
         bindings: {
+            required: '=',
+            name: '@',
             label: "<",
             model: "<"
         },

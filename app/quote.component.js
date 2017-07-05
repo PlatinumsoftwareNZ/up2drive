@@ -48,6 +48,10 @@
        ctrl.$onInit = function() { 
             ctrl.Calculate();
         }
+
+        ctrl.Reset =function() {
+            ctrl.form.$setPristine(); 
+        }
     }
 
     angular.module('consumerApp').component('quote', {
@@ -56,7 +60,8 @@
         bindings: {
             model: "<",
             next: '&',
-            back: '&'
+            back: '&',
+            form: '='
         },
         bindToController: true,
     });
