@@ -1,34 +1,21 @@
-(function (angular) {
-    'use strict';
+angular.module('consumerApp').controller('personalDetailsController', ['$state', 'optionsService', 'amortisationService', 'next', 'model',  function ($state, optionsService, amortisationService, next, model) {
+    var ctrl = this;
+    ctrl.next = next;
+    ctrl.TermOptions = [];
+    ctrl.model = model;
 
-    function personalDetailsController(optionsService, amortisationService) {
-        var ctrl = this;
 
-        ctrl.TermOptions = [];
+    ctrl.$onInit = function () {
+        ctrl.TermOptions = optionsService.GetTermOptions();
+    };
 
-        
-        ctrl.$onInit = function () {
-            ctrl.TermOptions = optionsService.GetTermOptions();
-
-        };
-
-        ctrl.FormSubmit = function () {
-            if (ctrl.form.$valid) {
-                return true;
-            } else {
-                ctrl.form.$setSubmitted();
-                return false;
-            }
+    ctrl.FormSubmit = function (form) {
+        console.log(ctrl.next);
+        if (form.$valid) {
+            $state.go(ctrl.next);
+        } else {
+            form.$setSubmitted();
+            return false;
         }
     }
-
-    angular.module('consumerApp').component('personalDetails', {
-        templateUrl: 'app/personal-details.component.html',
-        controller: ['optionsService', 'amortisationService', personalDetailsController],
-        bindings: {
-            model: "<",
-            next: '&',
-            form: '='
-        },
-    });
-})(window.angular);
+}]);

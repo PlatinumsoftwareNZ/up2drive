@@ -1,39 +1,74 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>up2drive</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <!-- Bootstrap core CSS -->
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>up2drive</title>
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="assets/css/site.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <link href="assets/css/site.css" rel="stylesheet">
+  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/ng-animation.css">
+  <link rel="stylesheet" href="node_modules/angular-google-places-autocomplete/dist/autocomplete.min.css">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <a href="application.html">Go to application entry</a>
+  <div class="container quote-body" ng-app="consumerApp">
+    <main></main>
+  </div>
+  <!--Libs-->
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNvD6y9oJzujoPzFxcY9BYzSjNcHmpNro&libraries=places"></script>
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+  <script src="node_modules/moment/min/moment.min.js"></script>
+  <script src="node_modules/angular-momentjs/angular-momentjs.min.js"></script>
+  <script src="node_modules/angular-google-places-autocomplete/dist/autocomplete.min.js"></script>
+  <script src="node_modules/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+  <!--App-->
+  <script src="app/main.js"></script>
 
-    <!-- Bootstrap core JavaScript
+  <!--Services-->
+  <script src="app/persistence.service.js?d=17.6.25"></script>
+  <script src="app/country.service.js?d=17.6.25"></script>
+  <script src="app/options.service.js?d=17.6.25"></script>
+  <script src="app/amortisation.service.js?d=17.6.25"></script>
+  <script src="app/model.service.js?d=17.6.25"></script>
+
+  <!--Components-->
+  <script src="app/address-finder.component.js?d=17.6.25"></script>
+  <script src="app/main.component.js?d=17.6.25"></script>
+  <script src="app/personal-details.component.js?d=17.6.25"></script>
+  <script src="app/quote.component.js?d=17.6.25"></script>
+  <script src="app/year-make-model.component.js?d=17.6.25"></script>
+  <script src="app/more-about-you.component.js?d=17.6.25"></script>
+  <script src="app/financials.component.js?d=17.6.25"></script>
+  <script src="app/financial-options.component.js?d=17.6.25"></script>
+  <script src="app/confirm.component.js?d=17.6.25"></script>
+  <script src="app/working.component.js?d=17.6.25"></script>
+  <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
-    <!--<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>-->
-    <!--<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+  <!--<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>-->
+  <!--<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
 
-  </body>
+</body>
+
 </html>

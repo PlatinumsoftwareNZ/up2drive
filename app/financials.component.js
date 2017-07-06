@@ -1,27 +1,21 @@
-(function (angular) {
-    'use strict';
-    function financialsController(optionsService, countryService) {
-        var ctrl = this;
+angular.module('consumerApp').controller('financialsController', ['model', 'back', 'next', '$state', function financialsController(model, back, next, $state, optionsService) {
+    var ctrl = this;
+    ctrl.model = model;
+    ctrl.back = back;
+    ctrl.next = next;
+    ctrl.$onInit = function () {};
 
-        ctrl.$onInit = function () {
-        };
-
-        ctrl.RequestBack = function(){
-            ctrl.back();
-        }
-
-        ctrl.FormSubmit = function(){
-            ctrl.next();
-        }
+    ctrl.RequestBack = function () {
+        $state.go(ctrl.back);
     }
 
-    angular.module('consumerApp').component('financials', {
-        templateUrl: 'app/financials.component.html',
-        controller: [ 'optionsService', 'countryService', financialsController],
-        bindings: {
-            model: "<",
-            next: '&',
-            back: '&'
-        },
-    });
-})(window.angular);
+    ctrl.FormSubmit = function (form) {
+        console.log(ctrl.next);
+        if (form.$valid) {
+            $state.go(ctrl.next);
+        } else {
+            form.$setSubmitted();
+            return false;
+        }
+    }
+}]);

@@ -1,25 +1,27 @@
-<fieldset>
-    <legend>Financials</legend>
-    <div class="row">
-        <div class="col-sm-6">
-            <financial-options title="'What you own'" options="$ctrl.model.Assets"></financial-options>
+<form name="form" class="form-horizontal" ng-submit="$ctrl.FormSubmit()" novalidate>
+    <fieldset>
+        <legend>Financials</legend>
+        <div class="row">
+            <div class="col-sm-6">
+                <financial-options title="'What you own'" options="$ctrl.model.Assets"></financial-options>
+            </div>
+            <div class="col-sm-6">
+                <financial-options title="'What you owe'" options="$ctrl.model.Liabilities"></financial-options>
+            </div>
         </div>
-        <div class="col-sm-6">
-            <financial-options title="'What you owe'" options="$ctrl.model.Liabilities"></financial-options>
+        <div class="row">
+            <div class="col-sm-6">
+                <financial-options title="'What you earn per month'" options="$ctrl.model.Income"></financial-options>
+            </div>
+            <div class="col-sm-6">
+                <financial-options title="'What you pay per month'" options="$ctrl.model.Expenses"></financial-options>
+            </div>
         </div>
+    </fieldset>
+    <div class="actions">
+        <!--<button class="btn btn-default" ng-show="$ctrl.stage===1" ng-click="$ctrl.ApplyNow()">Continue my application online</button>-->
+        <button class="btn btn-primary" ng-click="$ctrl.back()">Back</button>
+        <button type="button" class="btn btn-primary" ng-click="$ctrl.next()">Apply Now</button>
+        <!--<buton class="btn btn-back" ng-show="$ctrl.stage >= 3" ng-click="$ctrl.ApplyNow()">Apply Now</buton>-->
     </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <financial-options title="'What you earn per month'" options="$ctrl.model.Income"></financial-options>
-        </div>
-        <div class="col-sm-6">
-            <financial-options title="'What you pay per month'" options="$ctrl.model.Expenses"></financial-options>
-        </div>
-    </div>
-</fieldset>
-<div class="actions">
-    <!--<button class="btn btn-default" ng-show="$ctrl.stage===1" ng-click="$ctrl.ApplyNow()">Continue my application online</button>-->
-    <button class="btn btn-primary" ng-click="$ctrl.back()">Back</button>
-    <button type="button" class="btn btn-primary" ng-click="$ctrl.next()">Apply Now</button>
-    <!--<buton class="btn btn-back" ng-show="$ctrl.stage >= 3" ng-click="$ctrl.ApplyNow()">Apply Now</buton>-->
-</div>
+</form>
