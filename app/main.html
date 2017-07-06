@@ -1,31 +1,20 @@
 <ol class="track-progress" data-steps="4">
-  <li ng-class="{'done': $ctrl.stage >= 1}">
+  <li ui-sref-active="active"  ng-class="{'done': $ctrl.stage() >= 1}">
     <span>Your purchase</span>
-  </li>
-  <!--
-    -->
-  <li ng-class="{'done': $ctrl.stage >= 2}">
+  </li><!--
+    --><li ng-class="{'done': $ctrl.stage() >= 2}">
     <span>Quote</span>
-  </li>
-  <!--
-    -->
-  <li ng-class="{'done': $ctrl.stage >= 3}">
+  </li><!--
+    --><li ng-class="{'done': $ctrl.stage() >= 3}">
     <span>About you</span>
-  </li>
-  <!--
-    -->
-  <li ng-class="{'done': $ctrl.stage == 4}">
+  </li><!--
+    --><li ng-class="{'done': $ctrl.stage() == 4}">
     <span>Your finances</span>
     <i></i>
   </li>
 </ol>
 <div class="container-fluid quote-container">
   <ui-view></ui-view>
-  <!--<personal-details ng-class="'slide-left'" ng-if="$ctrl.stage===1" model="$ctrl.model" next="$ctrl.PersonalDetailsNext()" form="pd"></personal-details>
-        <quote ng-class="'slide-left'" ng-if="$ctrl.stage===2" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()" form="pd"></quote>      
-        <more-about-you ng-class="'slide-left'" ng-if="$ctrl.stage===3" model="$ctrl.model" next="$ctrl.AboutNext()" back="$ctrl.MoveBack()" form="pd"></more-about-you> 
-        <financials ng-class="'slide-left'" ng-if="$ctrl.stage===4" model="$ctrl.model" next="$ctrl.ApplyNow()" back="$ctrl.MoveBack()"></financials>
-        -->
   <working ng-class="'slide-left'" ng-if="$ctrl.stage === -1"></working>
   <confirm ng-class="'slide-left'" ng-if="$ctrl.stage === -2" first-name="$ctrl.model.FirstName" preferred-name="$ctrl.model.PreferredName"></confirm>
 

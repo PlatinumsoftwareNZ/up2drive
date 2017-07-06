@@ -2,13 +2,16 @@
     var app = angular.module('consumerApp', ['ngAnimate', 'angular-momentjs', 'google.places', 'ui.router']);
 
     app.config(function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.when('/application', 'application.personalDetails')
+        $urlRouterProvider.when('', 'application/details')
 
         $stateProvider
             .state('application', {
                 url: '/application',
                 abstract: true,
-                template: '<ui-view/>',
+                data: {
+                    stage: 0
+                },
+                //template: '<ui-view/>',
                 resolve: {
                     model: ['modelService', function (modelService) {
                         return modelService.getModel();
@@ -20,6 +23,9 @@
                 templateUrl: 'app/personal-details.component.html',
                 controller: 'personalDetailsController',
                 controllerAs: '$ctrl',
+                data: {
+                    stage: 1
+                },
                 resolve: {
                     next: function () {
                         return 'application.quote';
@@ -31,6 +37,9 @@
                 templateUrl: 'app/quote.component.html',
                 controller: 'quoteController',
                 controllerAs: '$ctrl',
+                data: {
+                    stage: 2
+                },
                 resolve: {
                     back: function () {
                         return 'application.personalDetails';
@@ -45,6 +54,9 @@
                 templateUrl: 'app/more-about-you.component.html',
                 controller: 'moreAboutYouController',
                 controllerAs: '$ctrl',
+                data: {
+                    stage: 3
+                },
                 resolve: {
                     back: function () {
                         return 'application.quote';
@@ -59,6 +71,9 @@
                 templateUrl: 'app/financials.component.html',
                 controller: 'financialsController',
                 controllerAs: '$ctrl',
+                data: {
+                    stage: 4
+                },
                 resolve: {
                     back: function () {
                         return 'application.moreAboutYou';

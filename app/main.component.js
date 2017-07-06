@@ -1,10 +1,8 @@
 (function (angular) {
     'use strict';
-    function mainController($location, $moment, persistenceService, optionsService) {
+    function mainController($location, $moment, persistenceService, optionsService, $state) {
         var ctrl = this;        
-
-        ctrl.stage = 1;
-        
+       
         ctrl.stageDescriptions = [
             "Quote",
             "Tell us more about you and your vehicle",
@@ -21,7 +19,11 @@
             ctrl.stage--;
         };
 
-        
+        ctrl.stage = function() {
+            if ($state.current.data) {
+                return $state.current.data.stage;
+            } else return 0;
+        }
 
         ctrl.ApplyNow = function(){
             ctrl.stage = -1;
@@ -52,7 +54,7 @@
 
     angular.module('consumerApp').component('main', {
         templateUrl: 'app/main.html',
-        controller: ['$location', '$moment', 'persistenceService', 'optionsService', mainController]
+        controller: ['$location', '$moment', 'persistenceService', 'optionsService', '$state', mainController]
     });
 })(window.angular);
 
