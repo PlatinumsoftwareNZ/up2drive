@@ -10,6 +10,7 @@ angular.module('consumerApp').controller('moreAboutYouController', ['optionsServ
     ctrl.YearMakeModelOption = null;
     ctrl.back = back;
     ctrl.next = next;
+    ctrl.model = model;
 
     ctrl.$onInit = function () {
 

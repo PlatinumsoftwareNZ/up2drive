@@ -5,9 +5,14 @@
 
         ctrl.AddressEntry = null;
         
+        ctrl.$onInit = function() {
+            if (this.AddressEntry === null && this.model.AddressEntry) {
+                this.AddressEntry = this.model.AddressEntry;
+            }
+        }
+
         ctrl.AddressEntryChanged = function () {
             var addressEntry = "AddressEntry";
-            
 
             if (!ctrl.AddressEntry || !ctrl.AddressEntry.address_components) {
                 ctrl.model[addressEntry] = ctrl.AddressEntry;
@@ -20,7 +25,7 @@
             }
             ctrl.model[addressEntry] = ctrl.AddressEntry.formatted_address;
             ctrl.UpdateDetails(ctrl.AddressEntry);
-
+            
             //Clear
             //ctrl.AddressEntry = null;
         }

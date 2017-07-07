@@ -1,4 +1,4 @@
-angular.module('consumerApp').controller('financialsController', ['model', 'back', 'next', '$state', function financialsController(model, back, next, $state, optionsService) {
+angular.module('consumerApp').controller('financialsController', ['model', 'back', 'next', '$state', 'persistenceService', function financialsController(model, back, next, $state, optionsService, persistenceService) {
     var ctrl = this;
     ctrl.model = model;
     ctrl.back = back;
@@ -9,8 +9,20 @@ angular.module('consumerApp').controller('financialsController', ['model', 'back
         $state.go(ctrl.back);
     }
 
+    ctrl.ApplyNow = function () {
+        var application = null;
+
+        persistenceService.SubmitNow(ctrl.model)
+            .then(function (response) {
+                if (response.data.CommittedId) {
+                    ctrl.model.CommittedId = response.data.CommittedId;
+                }
+            }, function (response) {
+                console.log(response.data);
+            });
+    }
+
     ctrl.FormSubmit = function (form) {
-        console.log(ctrl.next);
         if (form.$valid) {
             $state.go(ctrl.next);
         } else {
