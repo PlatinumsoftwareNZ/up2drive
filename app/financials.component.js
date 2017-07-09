@@ -1,9 +1,9 @@
-angular.module('consumerApp').controller('financialsController', ['model', 'back', 'next', '$state', 'persistenceService', function financialsController(model, back, next, $state, optionsService, persistenceService) {
+angular.module('consumerApp').controller('financialsController', ['model', 'back', 'next', '$state', 'persistenceService', function financialsController(model, back, next, $state, persistenceService) {
     var ctrl = this;
     ctrl.model = model;
     ctrl.back = back;
     ctrl.next = next;
-    ctrl.$onInit = function () {};
+    ctrl.persistenceService = persistenceService;
 
     ctrl.RequestBack = function () {
         $state.go(ctrl.back);
@@ -12,7 +12,7 @@ angular.module('consumerApp').controller('financialsController', ['model', 'back
     ctrl.ApplyNow = function () {
         var application = null;
 
-        persistenceService.SubmitNow(ctrl.model)
+        ctrl.persistenceService.SubmitNow(ctrl.model)
             .then(function (response) {
                 if (response.data.CommittedId) {
                     ctrl.model.CommittedId = response.data.CommittedId;

@@ -6,8 +6,8 @@
         ctrl.AddressEntry = null;
         
         ctrl.$onInit = function() {
-            if (this.AddressEntry === null && this.model.AddressEntry) {
-                this.AddressEntry = this.model.AddressEntry;
+            if (ctrl.AddressEntry === null && ctrl.model && ctrl.model.AddressEntry) {
+                ctrl.AddressEntry = ctrl.model.AddressEntry;
             }
         }
 

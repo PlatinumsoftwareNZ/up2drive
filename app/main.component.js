@@ -25,23 +25,6 @@
             } else return 0;
         }
 
-        ctrl.ApplyNow = function(){
-            ctrl.stage = -1;
-            
-            var application = null;
-
-            persistenceService.SubmitNow(ctrl.model)
-                .then(function (response) {
-                    if (response.data.CommittedId) {
-                        ctrl.model.CommittedId = response.data.CommittedId;
-                    }
-                    ctrl.stage = 2;
-                }, function (response) {
-                    ctrl.stage = -2; //Display confirm
-                    console.log(response.data);
-                });
-        }
-
         ctrl.PersonalDetailsNext = function () {
             //if ctrl.pd.valid
             ctrl.MoveNext();
