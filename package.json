@@ -9,6 +9,16 @@
   "license": "ISC",
   "devDependencies": {
     "@types/angular": "^1.6.17",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.6.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-if": "^2.0.2",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-rev-all": "^0.9.7",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
     "typescript": "^2.3.3"
   },
   "dependencies": {
