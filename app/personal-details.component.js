@@ -1,43 +1,19 @@
-(function (angular) {
-    'use strict';
-    function personalDetailsController(optionsService) {
-        var ctrl = this;
+angular.module('consumerApp').controller('personalDetailsController', ['$state', 'optionsService', 'amortisationService', 'next', 'model',  function ($state, optionsService, amortisationService, next, model) {
+    var ctrl = this;
+    ctrl.next = next;
+    ctrl.TermOptions = [];
+    ctrl.model = model;
 
+    ctrl.$onInit = function () {
         ctrl.TermOptions = optionsService.GetTermOptions();
+    };
 
-        ctrl.$onInit = function () {
-
-        };
-
-        ctrl.GetLoanAmount = function () {
-            if (!ctrl.model) return 0;
-
-            var loanAmount = 0;
-
-            if (ctrl.model.CashPrice)
-                loanAmount += parseFloat(ctrl.model.CashPrice);
-
-            if (ctrl.model.Deposit)
-                loanAmount -= parseFloat(ctrl.model.Deposit);
-
-            return loanAmount;
-        }
-
-        ctrl.Test = function () {
-            console.log(ctrl.GetMonthlyPayments());
-        }
-
-        ctrl.FormSubmit = function () {
-            ctrl.next();
+    ctrl.FormSubmit = function (form) {
+        if (form.$valid) {
+            $state.go(ctrl.next);
+        } else {
+            form.$setSubmitted();
+            return false;
         }
     }
-
-    angular.module('consumerApp').component('personalDetails', {
-        templateUrl: 'app/personal-details.component.html',
-        controller: [ 'optionsService', personalDetailsController],
-        bindings: {
-            model: "<",
-            next: '&'
-        },
-    });
-})(window.angular);
+}]);

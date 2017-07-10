@@ -16,8 +16,8 @@
 
         self.GetGenderOptions = function () {
             return [
-                'female',
-                'male'
+                'Female',
+                'Male'
             ];
         }
 
@@ -34,7 +34,7 @@
         self.GetNewVehicleDetailTypeOptions = function () {
             return [
                 'Year/Make/Model',
-                'Tradme Listing Number',
+                'Trade Me Listing Number',
                 'Registration Number',
                 'Dealership name',
                 'Still Looking'
@@ -43,8 +43,8 @@
 
         self.GetYesNoOptions = function () {
             return [
-                { value: 'No', text: 'No' },
-                { value: 'Yes', text: 'Yes' }
+                { value: false, text: 'No' },
+                { value: true, text: 'Yes' }
             ];
         }
 

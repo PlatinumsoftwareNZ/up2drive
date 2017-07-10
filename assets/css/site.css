@@ -1,155 +1,157 @@
-/*form input[type=email], form input[type=password], form input[type=tel], form input[type=text], form input[type=url] {
-    border: 0;
-    border-bottom: 1pt solid #9f9f9f;
-    border-radius: 0;
-    background: 0 0;
-    padding: 2.3em 0 .5rem .5em;
-    width: 100%;
-}
-
-form input[type=email]+label, form input[type=password]+label, form input[type=tel]+label, form input[type=text]+label, form input[type=url]+label
-{
-    color: #9f9f9f;
-    left: .5rem;
-    position: absolute;
-    -webkit-transition: top .3s ease-out,left .3s ease-out,font .3s ease-out,color .4s ease,font-weight .4s ease;
-    transition: top .3s ease-out,left .3s ease-out,font .3s ease-out,color .4s ease,font-weight .4s ease;
-    top: 2.2rem;
-    z-index: 2;
-}*/
-
 body {
   background-color: #eee;
-  font-family: 'Noto Sans', sans-serif;
 }
 
-.card{
-  background-color: #fff;
-  padding: 20px;
+fieldset legend {
+  color: #164a66;
+  font-size:18px;
 }
 
 label {
-  color: #004D40;
-  font-size: 1.25em;
+  font-weight: 300;
 }
 
-.rel {
+.quote-body {
+  background-color: white;
+  padding:0;
+}
+
+.navbar {
+  height:70px;
+}
+
+.wizard-steps {
+  padding:0 10px 0 10px;
+}
+
+.navbar-default {
+  background-color: #164a66;
+}
+
+.navbar-brand img {
+  width:150px;
+}
+
+.quote-body {
+  margin-top:20px;
+}
+.form-group.required .control-label:after {
+  content:" * ";
+  color:red;
+}
+
+.quote-container {
+  padding:20px;
+}
+
+div.actions {
+  text-align: center;
+  padding:20px;
+}
+
+.btn-quote {
+  background-color: blue;  
+  color:white;
+  padding:15px;
+}
+
+
+
+/* Wizard */
+.track-progress {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.track-progress li {
+  list-style-type: none;
   display: inline-block;
-  transition: all .2s ease;
-  z-index: 10;
+
   position: relative;
-  top: -30px;
+  margin: 0;
+  padding: 0;
+
+  text-align: center;
+  line-height: 30px;
+  height: 30px;
+
+  background-color: #f0f0f0;
 }
 
-.input-container {
-  position: relative;
-  margin: 45px auto -25px;
+.track-progress[data-steps="3"] li { width: 33%; }
+.track-progress[data-steps="4"] li { width: 25%; }
+.track-progress[data-steps="5"] li { width: 20%; }
+
+.track-progress li > span {
+  display: block;
+
+  color: #999;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-input[type="text"], input[type=number] {
-  width: 100%;
-  position: relative;
-  display: inline-block;
-  font-size: 1.25em;
-  padding: 0 0 5px 0;
-  color: #004D40;
-  background-color: transparent;
-  border: none;
-  border-bottom: solid 2px #ddd;
-  outline: none;
-  z-index: 20;
+.track-progress li.done > span {
+  color: #666;
+  background-color: #ccc;
 }
 
-input[type="text"]:focus ~ label, 
-input[type="text"]:valid ~ label,
-input[type="number"]:focus ~ label, 
-input[type="number"]:valid ~ label 
-{
-  top: -60px;
-  font-size: 1.00em;
-}
+.track-progress li > span:after,
+.track-progress li > span:before {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 0px;
 
-/*.needs-value{
-  top: -30px !important;
-  font-size: 1.25em !important;
-}*/
+  position: absolute;
+  top: 0;
+  left: 0;
 
-input[type="text"]:focus, input[type="number"]:focus
-{
-  border-bottom: solid 2px #4DB6AC;
-}
-
-input[type="submit"] {
-  cursor: pointer;
-  margin: auto;
-  width: 100%;
-  background-color: #4DB6AC;
-  color: #E0F2F1;
-  font-family: 'Noto Sans', sans-serif;
-  font-size: 1.25em;
-  padding: 10px 0;
-  border: solid #009688;
-  border-width: 0 0 4px 0;
-  border-radius: 3px;
-  outline: none;
-}
-
-input[type="submit"]:hover {
-  background: #26A69A;
-  border: solid #00897B;
-  border-width: 0 0 4px 0;
-}
-
-input[type="submit"]:active {
-  background: #009688;
   border: solid transparent;
-  border-width: 0 0 0px 0;
+  border-left-color: #f0f0f0;
+  border-width: 15px;
 }
 
-.btn-back {
-  cursor: pointer;
-  margin: auto;
-  width: 100%;
-  background-color: #666;
-  color: #E0F2F1;
-  font-family: 'Noto Sans', sans-serif;
-  font-size: 1.25em;
-  padding: 10px 0;
-  border: solid #333;
-  border-width: 0 0 4px 0;
-  border-radius: 3px;
-  outline: none;
+.track-progress li > span:after {
+  top: -5px;
+  z-index: 1;
+  border-left-color: white;
+  border-width: 20px;
 }
 
-.btn-back:hover {
-  background: #555;
-  border: solid #333;
-  color: #E0F2F1;
-  border-width: 0 0 4px 0;
+.track-progress li > span:before {
+  z-index: 2;
 }
 
-.btn-back:active {
-  background: #555;
+.track-progress li.done + li > span:before {
+  border-left-color: #ccc;
+}
+
+.track-progress li:first-child > span:after,
+.track-progress li:first-child > span:before {
+  display: none;
+}
+
+.track-progress li:first-child i,
+.track-progress li:last-child i {
+  display: block;
+  height: 0;
+  width: 0;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
   border: solid transparent;
-  border-width: 0 0 0px 0;
+  border-left-color: white;
+  border-width: 15px;
 }
 
-.text-1{
-  font-size: 4em;
-}
+.track-progress li:last-child i {
+  left: auto;
+  right: -15px;
 
-.text-2{
-  font-size: 3em;
-}
-
-.text-3{
-  font-size: 2em;
-}
-
-.text-4{
-  font-size: 1.5em;
-}
-
-.text-5{
-  font-size: 0.9em;
+  border-left-color: transparent;
+  border-top-color: white;
+  border-bottom-color: white;
 }

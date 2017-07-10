@@ -1,42 +1,33 @@
-(function (angular) {
-    'use strict';
-    function financialsController(optionsService, countryService) {
-        var ctrl = this;
+angular.module('consumerApp').controller('financialsController', ['model', 'back', 'next', '$state', 'persistenceService', function financialsController(model, back, next, $state, persistenceService) {
+    var ctrl = this;
+    ctrl.model = model;
+    ctrl.back = back;
+    ctrl.next = next;
+    ctrl.persistenceService = persistenceService;
 
-        ctrl.$onInit = function () {
-        };
-
-        ctrl.DisplayNewYearMakeModel = function(){
-            return ctrl.model
-                && ctrl.model.NewVehicleDetailType === ctrl.YearMakeModelOption;
-        }
-
-        ctrl.DisplayNewDetails = function(){
-            return ctrl.model
-                && ctrl.model.NewVehicleDetailType !== ctrl.YearMakeModelOption
-                && ctrl.model.NewVehicleDetailType !== ctrl.StillLookingOption;
-        }
-
-        ctrl.DisplayTradeYearMakeModel = function(){
-            return ctrl.model.VehicleToTrade;
-        }
-
-        ctrl.RequestBack = function(){
-            ctrl.back();
-        }
-
-        ctrl.FormSubmit = function(){
-            ctrl.next();
-        }
+    ctrl.RequestBack = function () {
+        $state.go(ctrl.back);
     }
 
-    angular.module('consumerApp').component('financials', {
-        templateUrl: 'app/financials.component.html',
-        controller: [ 'optionsService', 'countryService', financialsController],
-        bindings: {
-            model: "<",
-            next: '&',
-            back: '&'
-        },
-    });
-})(window.angular);
+    ctrl.ApplyNow = function () {
+        var application = null;
+
+        ctrl.persistenceService.SubmitNow(ctrl.model)
+            .then(function (response) {
+                if (response.data.CommittedId) {
+                    ctrl.model.CommittedId = response.data.CommittedId;
+                }
+            }, function (response) {
+                console.log(response.data);
+            });
+    }
+
+    ctrl.FormSubmit = function (form) {
+        if (form.$valid) {
+            $state.go(ctrl.next);
+        } else {
+            form.$setSubmitted();
+            return false;
+        }
+    }
+}]);
