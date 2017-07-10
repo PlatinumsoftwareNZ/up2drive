@@ -5,7 +5,7 @@
     <fieldset>
         <legend>Loan Details</legend>
         <div class="form-group">
-            <label for="Term of loan" class="col-sm-4 control-label">Term of loan</label>
+            <label for="Term of loan" class="col-sm-3 control-label">Term of loan</label>
             <div class="col-sm-8">
                 <select required name="Term" class="form-control" ng-options="option.value as option.text for option in $ctrl.TermOptions"
                     ng-model="$ctrl.model.Term"></select>
@@ -13,25 +13,29 @@
         </div>
 
         <div class="form-group required" ng-class="{ 'has-error': ((form.$submitted || form.cashprice.$touched) && form.cashprice.$invalid) }">
-            <label class="col-sm-4 control-label">Purchase Price</label>
-            <div class="col-sm-8 input-group">
-                <span class="input-group-addon">$</span>
-                <input name="cashprice" required type="number" class="form-control" ng-model="$ctrl.model.CashPrice" />
+            <label class="col-sm-3 control-label">Purchase Price</label>
+            <div class="col-sm-8">
+                <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input name="cashprice" required type="number" class="form-control" ng-model="$ctrl.model.CashPrice" />
+                </div>                
             </div>
         </div>
 
         <div class="form-group required" ng-class="{ 'has-error': ((form.$submitted || form.deposit.$touched) && form.deposit.$invalid) }">
-            <label class="col-sm-4 control-label">Deposit Amount</label>
-            <div class="col-sm-8 input-group">
+            <label class="col-sm-3 control-label">Deposit Amount</label>
+            <div class="col-sm-8">
+                <div class="input-group">
                 <span class="input-group-addon">$</span>
                 <input name="deposit" required type="number" class="form-control" ng-model="$ctrl.model.Deposit" />
+            </div>
             </div>
         </div>
     </fieldset>
     <fieldset>
         <legend>Contact Information</legend>
         <div class="form-group required" ng-class="{ 'has-error': ((form.$submitted || form.firstName.$touched) && form.firstName.$invalid) }">
-            <label class="col-sm-4 control-label">First Name</label>
+            <label class="col-sm-3 control-label">First Name</label>
             <div class="col-sm-8">
                 <input name="firstName" required type="text" class="form-control" ng-model="$ctrl.model.FirstName" placeholder="As it appears on your drivers license"
                 />
@@ -39,7 +43,7 @@
         </div>
 
         <div class="form-group">
-            <label class="col-sm-4 control-label">Middle Name</label>
+            <label class="col-sm-3 control-label">Middle Name</label>
             <div class="col-sm-8">
                 <input name="middleName" type="text" class="form-control" ng-model="$ctrl.model.MiddleName" placeholder="As it appears on your drivers license"
                 />
@@ -47,7 +51,7 @@
         </div>
 
         <div class="form-group required" ng-class="{ 'has-error': ((form.$submitted || form.lastName.$touched) && form.lastName.$invalid) }">
-            <label class="col-sm-4 control-label">Last Name</label>
+            <label class="col-sm-3 control-label">Last Name</label>
             <div class="col-sm-8">
                 <input name="lastName" required type="text" class="form-control" ng-model="$ctrl.model.LastName" placeholder="As it appears on your drivers license"
                 />
@@ -55,14 +59,14 @@
         </div>
 
         <div class="form-group">
-            <label class="col-sm-4 control-label">Preferred Name</label>
+            <label class="col-sm-3 control-label">Preferred Name</label>
             <div class="col-sm-8">
                 <input name="preferredName" type="text" class="form-control" ng-model="$ctrl.model.PreferredName" />
             </div>
         </div>
 
         <div class="form-group required" ng-class="{ 'has-error': ((form.$submitted || form.mobile.$touched) && form.mobile.$invalid) }">
-            <label class="col-sm-4 control-label">Mobile Number</label>
+            <label class="col-sm-3 control-label">Mobile Number</label>
             <div class="col-sm-8">
                 <input name="mobile" required type="text" class="form-control" ng-model="$ctrl.model.MobilePhoneNumber" placeholder="e.g. 04 123 456 "
                 />
@@ -70,7 +74,7 @@
         </div>
 
         <div class="form-group required" ng-class="{ 'has-error': ((form.$submitted || form.email.$touched) && form.email.$invalid) }">
-            <label class="col-sm-4 control-label">Email</label>
+            <label class="col-sm-3 control-label">Email</label>
             <div class="col-sm-8">
                 <input name="email" required="required" type="email" class="form-control" ng-model="$ctrl.model.PersonalEmail" />
             </div>
@@ -80,7 +84,7 @@
 
     <div class="actions">
         <!--<button class="btn btn-default" ng-show="$ctrl.stage===1" ng-click="$ctrl.ApplyNow()">Continue my application online</button>-->
-        <buton type="button" class="btn btn-primary" ui-sref='$ctrl.next' ng-click="$ctrl.FormSubmit(form) && $ctrl.next()">Get Quote Now & continue my application</buton>
+        <buton type="button" class="btn btn-lg btn-primary" ui-sref='$ctrl.next' ng-click="$ctrl.FormSubmit(form) && $ctrl.next()">Get Quote Now!</buton>
         <!--<buton class="btn btn-back" ng-show="$ctrl.stage >= 3" ng-click="$ctrl.ApplyNow()">Apply Now</buton>-->
     </div>
 </form>

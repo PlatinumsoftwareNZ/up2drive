@@ -1,21 +1,35 @@
-<ol class="track-progress" data-steps="4">
-  <li ui-sref-active="active"  ng-class="{'done': $ctrl.stage() >= 1}">
-    <span>Your purchase</span>
-  </li><!--
-    --><li ng-class="{'done': $ctrl.stage() >= 2}">
-    <span>Quote</span>
-  </li><!--
-    --><li ng-class="{'done': $ctrl.stage() >= 3}">
-    <span>About you</span>
-  </li><!--
-    --><li ng-class="{'done': $ctrl.stage() == 4}">
-    <span>Your finances</span>
-    <i></i>
-  </li>
-</ol>
-<div class="container-fluid quote-container">
-  <ui-view></ui-view>
-  <working ng-class="'slide-left'" ng-if="$ctrl.stage === -1"></working>
-  <confirm ng-class="'slide-left'" ng-if="$ctrl.stage === -2" first-name="$ctrl.model.FirstName" preferred-name="$ctrl.model.PreferredName"></confirm>
+<div class="container quote-body" >
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img alt="Brand" src="/assets/img/up2drive-logo-nav.svg">
+        </a>
+      </div>
+    </div>
+  </nav>
 
+  <div class="wizard-steps">
+    <ol class="track-progress" data-steps="4">
+      <li ui-sref-active="active"  ng-class="{'done': $ctrl.stage() >= 1}">
+        <span>Your purchase</span>
+      </li><!--
+        --><li ng-class="{'done': $ctrl.stage() >= 2}">
+        <span>Quote</span>
+      </li><!--
+        --><li ng-class="{'done': $ctrl.stage() >= 3}">
+        <span>About you</span>
+      </li><!--
+        --><li ng-class="{'done': $ctrl.stage() == 4}">
+        <span>Your finances</span>
+        <i></i>
+      </li>
+    </ol>
+  </div>
+  <div class="container-fluid quote-container">
+    <ui-view></ui-view>
+    <working ng-class="'slide-left'" ng-if="$ctrl.stage === -1"></working>
+    <confirm ng-class="'slide-left'" ng-if="$ctrl.stage === -2" first-name="$ctrl.model.FirstName" preferred-name="$ctrl.model.PreferredName"></confirm>
+
+  </div>
 </div>

@@ -1,3 +1,37 @@
+body {
+  background-color: #eee;
+}
+
+fieldset legend {
+  color: #164a66;
+  font-size:18px;
+}
+
+label {
+  font-weight: 300;
+}
+
+.quote-body {
+  background-color: white;
+  padding:0;
+}
+
+.navbar {
+  height:70px;
+}
+
+.wizard-steps {
+  padding:0 10px 0 10px;
+}
+
+.navbar-default {
+  background-color: #164a66;
+}
+
+.navbar-brand img {
+  width:150px;
+}
+
 .quote-body {
   margin-top:20px;
 }
@@ -20,6 +54,7 @@ div.actions {
   color:white;
   padding:15px;
 }
+
 
 
 /* Wizard */
