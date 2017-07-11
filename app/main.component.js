@@ -3,24 +3,6 @@
     function mainController($location, $moment, persistenceService, optionsService, $state) {
         var ctrl = this;
         
-        ctrl.$onInit = function () {
-            //Try to get a price from the query string and update the default model if found
-            var priceFromQueryString = ctrl.GetPriceFromQueryString();
-
-            if (priceFromQueryString)
-                ctrl.model.CashPrice = parseFloat(priceFromQueryString);                
-        }
-
-        ctrl.stageDescriptions = [
-            "Quote",
-            "Tell us more about you and your vehicle",
-            "Tell us a more about you",
-            "Tell us a about what you owe and what you own",
-        ];
-
-            PurchasePrice: null,
-            FirstName: null,
-            MiddleName: null,
         ctrl.MoveNext = function () {
             ctrl.stage++;
         };
@@ -47,7 +29,7 @@
     }
 
     angular.module('consumerApp').component('main', {
-        templateUrl: 'app/main.html',
+        templateUrl: 'app/main.component.html',
         controller: ['$location', '$moment', 'persistenceService', 'optionsService', '$state', mainController]
     });
 })(window.angular);

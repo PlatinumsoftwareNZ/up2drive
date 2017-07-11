@@ -23,10 +23,10 @@ gulp.task('js', function () {
     .pipe(ngAnnotate())
     .pipe(uglify())
     .pipe(gulpif(config.sourceMaps,sourcemaps.write()))
-    // .pipe(gulpRevAll.revision())    
+//     .pipe(gulpRevAll.revision())    
      .pipe(gulp.dest('dist/src'))
-    // .pipe(gulpRevAll.manifestFile())
-    // .pipe(gulp.dest('dist/src')); 
+     //.pipe(gulpRevAll.manifestFile())
+     .pipe(gulp.dest('dist/src')); 
 
   gulp.src(['assets/css/*.*'])
     .pipe(concat('app.css'))
