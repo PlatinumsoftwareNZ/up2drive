@@ -5,11 +5,11 @@ var uglify = require('gulp-uglify')
 var ngAnnotate = require('gulp-ng-annotate')
 var util = require('gulp-util')
 var gulpif = require('gulp-if')
-var gulpRevAll = require('gulp-rev-all')
 var del = require('del')
 var cleanCSS = require('gulp-clean-css')
 var gulpCopy = require('gulp-copy')
 var runSequence = require('run-sequence');
+var cacheBuster = require('gulp-cache-bust');
 
 var config = {
     sourceMaps: !util.env.production
@@ -34,9 +34,7 @@ gulp.task('js', function () {
     .pipe(ngAnnotate())
     .pipe(uglify())
     .pipe(gulpif(config.sourceMaps,sourcemaps.write()))
-//     .pipe(gulpRevAll.revision())    
      .pipe(gulp.dest('assets/js'))
-     //.pipe(gulpRevAll.manifestFile())
 })
 
 gulp.task('css', function() {
@@ -63,11 +61,21 @@ gulp.task('dist', function() {
     .pipe(gulpCopy('dist/src'));
 });
 
+
+
+// cacheBuster looks at the css and js files and appends a hash to the
+// request to cause the file to get reloaded when the file changes.
+gulp.task('cacheBust', function () {
+    return gulp.src('dist/src/index.html')
+        .pipe(cacheBuster())
+        .pipe(gulp.dest('dist/src'));
+});
+
 gulp.task('deploy', function(callback) {
   runSequence('clean',
-              'css',
-              'js',
-              'dist')
+              ['css','js'],
+              'dist',
+              'cacheBust')
 });
 
 gulp.task('watch', ['js','css'], function () {
