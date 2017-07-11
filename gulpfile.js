@@ -10,10 +10,22 @@ var cleanCSS = require('gulp-clean-css')
 var gulpCopy = require('gulp-copy')
 var runSequence = require('run-sequence');
 var cacheBuster = require('gulp-cache-bust');
+var rename = require('gulp-rename');
 
 var config = {
-    sourceMaps: !util.env.production
+    sourceMaps: !util.env.production,
+    envFileName: function() {
+      if (util.env.production) {
+        return 'env.production.js'
+      }
+      else {
+        return 'env.js'
+      }
+    }
 };
+
+
+
 
 gulp.task('clean', function() {
     return del(['dist/*']);
@@ -50,15 +62,27 @@ gulp.task('css', function() {
 });
 
   
+
 gulp.task('dist', function() {
+
   return gulp.src([
     'app/*.html',
     'assets/css/app.css',
     'assets/js/app.js',
     'assets/img/*.*',
-    'index.html'
+    'index.html',
+    config.envFileName()
   ])
     .pipe(gulpCopy('dist/src'));
+});
+
+gulp.task('env', function() {
+
+  return gulp.src([
+    config.envFileName()
+  ])
+    .pipe(rename('env.js'))
+    .pipe(gulp.dest('dist/src'));
 });
 
 
@@ -75,7 +99,7 @@ gulp.task('deploy', function(callback) {
   runSequence('clean',
               ['css','js'],
               'dist',
-              'cacheBust')
+              ['env','cacheBust'])
 });
 
 gulp.task('watch', ['js','css'], function () {
