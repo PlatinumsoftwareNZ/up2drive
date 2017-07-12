@@ -1,0 +1,49 @@
+<div class="container quote-body" >
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img alt="Brand" src="/assets/img/up2drive-logo-nav.svg">
+        </a>
+      </div>
+    </div>
+  </nav>
+
+
+ <div class="row bs-wizard">
+      <div ng-class="{'complete': $ctrl.stage() >= 1}" class="col-xs-3 bs-wizard-step" >
+        <div class="text-center bs-wizard-stepnum">Step 1</div>
+        <div class="progress"><div class="progress-bar"></div></div>
+        <a href="#" class="bs-wizard-dot"></a>
+        <div class="bs-wizard-info text-center">Your Purchase</div>
+      </div>
+      
+      <div ng-class="{'complete': $ctrl.stage() >= 2}" class="col-xs-3 bs-wizard-step" >
+        <div class="text-center bs-wizard-stepnum">Step 2</div>
+        <div class="progress"><div class="progress-bar"></div></div>
+        <a href="#" class="bs-wizard-dot"></a>
+        <div class="bs-wizard-info text-center">Quote</div>
+      </div>
+      
+      <div ng-class="{'complete': $ctrl.stage() >= 3}" class="col-xs-3 bs-wizard-step" >
+        <div class="text-center bs-wizard-stepnum">Step 3</div>
+        <div class="progress"><div class="progress-bar"></div></div>
+        <a href="#" class="bs-wizard-dot"></a>
+        <div class="bs-wizard-info text-center">About You</div>
+      </div>
+      
+      <div ng-class="{'complete': $ctrl.stage() >= 4}" class="col-xs-3 bs-wizard-step" >
+        <div class="text-center bs-wizard-stepnum">Step 4</div>
+        <div class="progress"><div class="progress-bar"></div></div>
+        <a href="#" class="bs-wizard-dot"></a>
+        <div class="bs-wizard-info text-center">Your Finances</div>
+      </div>
+  </div>
+
+  <div class="container-fluid quote-container">
+    <ui-view></ui-view>
+    <working ng-class="'slide-left'" ng-if="$ctrl.stage === -1"></working>
+    <confirm ng-class="'slide-left'" ng-if="$ctrl.stage === -2" first-name="$ctrl.model.FirstName" preferred-name="$ctrl.model.PreferredName"></confirm>
+
+  </div>
+</div>

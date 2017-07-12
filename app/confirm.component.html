@@ -1,7 +1,39 @@
 <form id="pd" class="container-fluid" ng-submit="$ctrl.FormSubmit()">
     <div class="row">
         <div class="col-sm-12">
-            <h2>Thanks {{$ctrl.GetNameToUse()}}, we'll be in touch</h2>
+            <h1>Thanks<span ng-if="$ctrl.GetNameToUse() && $ctrl.GetNameToUse().length > 0"> </span>{{$ctrl.GetNameToUse()}}, we'll be in touch</h1>
+        </div>
+    </div>
+    <hr/>
+    <div ng-if="$ctrl.priceQuote" class="text-4">
+        <div class="row">
+            <div class="col-sm-12">
+                <label>And here is your quote</label>
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-sm-5">Price</label>
+            <span class="col-sm-7">{{ $ctrl.priceQuote.price | currency }}</span>
+        </div>
+        <div class="row">
+            <label class="col-sm-5">Deposit</label>
+            <span class="col-sm-7">{{ $ctrl.priceQuote.deposit | currency }}</span>
+        </div>
+        <div class="row">
+            <label class="col-sm-5">Duration</label>
+            <span class="col-sm-7">{{ $ctrl.priceQuote.term }} months</span>
+        </div>
+        <div class="row">
+            <label class="col-sm-5">Fees</label>
+            <span class="col-sm-7">{{ $ctrl.priceQuote.establishmentFee | currency }}</span>
+        </div>
+        <div class="row">
+            <label class="col-sm-5">Annual Interest Rate</label>
+            <span class="col-sm-7">%{{ $ctrl.priceQuote.anualInterestRate }}</span>
+        </div>
+        <div class="row">
+            <label class="col-sm-5">Monthly Payments</label>
+            <span class="col-sm-7">{{ $ctrl.priceQuote.monthlyPayments | currency }}</span>
         </div>
     </div>
 </form>

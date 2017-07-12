@@ -1,12 +1,18 @@
-<div class="input-container">
-    <input required type="number" ng-model="$ctrl.model.Year" />
-    <label class="rel">{{$ctrl.prefix}} Year</label>
+<div class="form-group">
+    <label class="col-sm-4 control-label">{{$ctrl.prefix}} Year</label>
+    <div class="col-sm-8">
+        <input required type="number" ng-model="$ctrl.model.Year" />
+    </div>
 </div>
-<div class="input-container">
-    <input required type="text" ng-model="$ctrl.model.Make" />
-    <label class="rel">{{$ctrl.prefix}} Make</label>
+<div class="form-group">
+    <label class="col-sm-4 control-label">{{$ctrl.prefix}} Make</label>
+    <div class="col-sm-8">
+        <input required type="text" ng-model="$ctrl.model.Make" />
+    </div>
 </div>
-<div class="input-container">
-    <input required type="text" ng-model="$ctrl.model.Model" />
-    <label class="rel">{{$ctrl.prefix}} Model</label>
+<div class="form-group">
+    <label class="col-sm-4 control-label">{{$ctrl.prefix}} Model</label>
+    <div class="col-sm-8">
+        <input required type="text" ng-model="$ctrl.model.Model" />
+    </div>
 </div>

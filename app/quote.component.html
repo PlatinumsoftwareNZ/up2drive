@@ -1,0 +1,60 @@
+<form name="form" class="form-horizontal" ng-submit="$ctrl.FormSubmit(form)" novalidate>
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Hi {{$ctrl.model.FirstName}}</h3>
+            <p>Your current monthly loan repayments would be <b>{{$ctrl.model.MonthlyPayment | currency}}</b></p>
+            <p>Would you like to find out how we could help you with that?</p>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Calculator
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="Term of loan" class="col-sm-4 control-label">Term of loan</label>
+                        <div class="col-sm-8">
+                            <select name="Term" class="form-control" ng-options="option.value as option.text for option in $ctrl.TermOptions" ng-model="$ctrl.model.Term"></select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Loan Amount</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input name="cashprice" required type="number" class="form-control" ng-model="$ctrl.model.CashPrice" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Deposit Amount</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input name="deposit" required type="number" class="form-control" ng-model="$ctrl.model.Deposit" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <a class="btn btn-default" ng-click="$ctrl.Calculate()">Calculate</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">Repayment Amount</label>
+                        <div class="col-sm-8">
+                            <p class="form-control-static">{{$ctrl.model.MonthlyPayment | currency}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions">
+        <button type="button" class="btn btn-primary" ng-click="$ctrl.RequestBack()">Back</button>
+        <button type="button" class="btn btn-primary" ng-click="$ctrl.FormSubmit(form)">Next</button>
+    </div>
+</form>

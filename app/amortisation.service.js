@@ -29,6 +29,31 @@
             return A;
         }
 
+        var establishmentFee = 250;
+        var anualInterestRate = 10.95;
+
+        self.GeneratePriceQuote = function(price, deposit, term){
+            return {
+                price: price,
+                deposit: deposit,
+                term: term,
+                establishmentFee: establishmentFee,
+                anualInterestRate: anualInterestRate,
+                monthlyPayments: self.GetMonthlyPayments(price, deposit, term)
+            }
+        };
+
+        self.GetMonthlyPayments = function (price, deposit, term) {
+            var establishmentFee = 250;
+
+            var principal = price - deposit + establishmentFee;
+            var monthlyInterestAsFraction = anualInterestRate / 12 / 100;
+
+            var monthlyPayments = self.GetInstallmentValue(principal, monthlyInterestAsFraction, term);
+
+            return monthlyPayments;
+        };
+
         // self.RunStandardTest();
 
         return self;

@@ -16,7 +16,8 @@
         controller: [ confirmController ],
         bindings: {
             firstName: "<",
-            preferredName: "<"
+            preferredName: "<",
+            priceQuote: "<"
         },
     });
 })(window.angular);
