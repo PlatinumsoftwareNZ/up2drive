@@ -9,7 +9,7 @@
     }
 
     // Register environment in AngularJS as constant
-    ngModule.constant('__env', env);
+    app.constant('__env', env);
 
     app.config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.when('', 'application/details')
