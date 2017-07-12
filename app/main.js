@@ -1,5 +1,15 @@
 (function () {
+
     var app = angular.module('consumerApp', ['ngAnimate', 'angular-momentjs', 'google.places', 'ui.router']);
+
+    var env = {};
+    // Import variables if present (from env.js)
+    if(window){  
+        Object.assign(env, window.__env);
+    }
+
+    // Register environment in AngularJS as constant
+    app.constant('__env', env);
 
     app.config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.when('', 'application/details')

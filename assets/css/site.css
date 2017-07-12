@@ -57,101 +57,25 @@ div.actions {
 
 
 
-/* Wizard */
-.track-progress {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
+.bs-wizard {margin-top: 40px;}
 
-.track-progress li {
-  list-style-type: none;
-  display: inline-block;
-
-  position: relative;
-  margin: 0;
-  padding: 0;
-
-  text-align: center;
-  line-height: 30px;
-  height: 30px;
-
-  background-color: #f0f0f0;
-}
-
-.track-progress[data-steps="3"] li { width: 33%; }
-.track-progress[data-steps="4"] li { width: 25%; }
-.track-progress[data-steps="5"] li { width: 20%; }
-
-.track-progress li > span {
-  display: block;
-
-  color: #999;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.track-progress li.done > span {
-  color: #666;
-  background-color: #ccc;
-}
-
-.track-progress li > span:after,
-.track-progress li > span:before {
-  content: "";
-  display: block;
-  width: 0px;
-  height: 0px;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  border: solid transparent;
-  border-left-color: #f0f0f0;
-  border-width: 15px;
-}
-
-.track-progress li > span:after {
-  top: -5px;
-  z-index: 1;
-  border-left-color: white;
-  border-width: 20px;
-}
-
-.track-progress li > span:before {
-  z-index: 2;
-}
-
-.track-progress li.done + li > span:before {
-  border-left-color: #ccc;
-}
-
-.track-progress li:first-child > span:after,
-.track-progress li:first-child > span:before {
-  display: none;
-}
-
-.track-progress li:first-child i,
-.track-progress li:last-child i {
-  display: block;
-  height: 0;
-  width: 0;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  border: solid transparent;
-  border-left-color: white;
-  border-width: 15px;
-}
-
-.track-progress li:last-child i {
-  left: auto;
-  right: -15px;
-
-  border-left-color: transparent;
-  border-top-color: white;
-  border-bottom-color: white;
-}
+/*Form Wizard*/
+.bs-wizard {border-bottom: solid 1px #e0e0e0; padding: 0 0 10px 0;}
+.bs-wizard > .bs-wizard-step {padding: 0; position: relative;}
+.bs-wizard > .bs-wizard-step + .bs-wizard-step {}
+.bs-wizard > .bs-wizard-step .bs-wizard-stepnum {color: #595959; font-size: 16px; margin-bottom: 5px;}
+.bs-wizard > .bs-wizard-step .bs-wizard-info {color: #999; font-size: 14px;}
+.bs-wizard > .bs-wizard-step > .bs-wizard-dot {position: absolute; width: 30px; height: 30px; display: block; background: #3299d5; top: 45px; left: 50%; margin-top: -15px; margin-left: -15px; border-radius: 50%;} 
+.bs-wizard > .bs-wizard-step > .bs-wizard-dot:after {content: ' '; width: 14px; height: 14px; background:#164a66;; border-radius: 50px; position: absolute; top: 8px; left: 8px; } 
+.bs-wizard > .bs-wizard-step > .progress {position: relative; border-radius: 0px; height: 8px; box-shadow: none; margin: 20px 0;}
+.bs-wizard > .bs-wizard-step > .progress > .progress-bar {width:0px; box-shadow: none; background: #3299d5;}
+.bs-wizard > .bs-wizard-step.complete > .progress > .progress-bar {width:100%;}
+.bs-wizard > .bs-wizard-step.active > .progress > .progress-bar {width:50%;}
+.bs-wizard > .bs-wizard-step:first-child.active > .progress > .progress-bar {width:0%;}
+.bs-wizard > .bs-wizard-step:last-child.active > .progress > .progress-bar {width: 100%;}
+.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot {background-color: #f5f5f5;}
+.bs-wizard > .bs-wizard-step.disabled > .bs-wizard-dot:after {opacity: 0;}
+.bs-wizard > .bs-wizard-step:first-child  > .progress {left: 50%; width: 50%;}
+.bs-wizard > .bs-wizard-step:last-child  > .progress {width: 50%;}
+.bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot{ pointer-events: none; }
+/*END Form Wizard*/
