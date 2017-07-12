@@ -14,6 +14,7 @@ var rename = require('gulp-rename');
 
 var config = {
     sourceMaps: !util.env.production,
+    production: util.env.production,
     envFileName: function() {
       if (util.env.production) {
         return 'env.production.js'
@@ -43,8 +44,8 @@ gulp.task('js', function () {
    'app/**/*.js'])
   .pipe(gulpif(config.sourceMaps,sourcemaps.init()))
     .pipe(concat('app.js'))
-    .pipe(ngAnnotate())
-    .pipe(uglify())
+    .pipe(gulpif(config.production,ngAnnotate()))
+    .pipe(gulpif(config.production,uglify()))
     .pipe(gulpif(config.sourceMaps,sourcemaps.write()))
      .pipe(gulp.dest('assets/js'))
 })
@@ -103,6 +104,6 @@ gulp.task('deploy', function(callback) {
 });
 
 gulp.task('watch', ['js','css'], function () {
-  gulp.watch('assets/**/*.js', ['js'])
-  gulp.watch('assets/**/*.css', ['css'])
+  gulp.watch('assets/js/*.js', ['js'])
+  gulp.watch('assets/css/*.css', ['css'])
 })

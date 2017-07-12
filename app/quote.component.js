@@ -61,14 +61,3 @@ angular.module('consumerApp').controller('quoteController',
     }
 }]);
 
-// angular.module('consumerApp').component('quote', {
-//     templateUrl: 'app/quote.component.html',
-//     controller: ['amortisationService', 'optionsService', quoteController],
-//     bindings: {
-//         model: "<",
-//         next: '&',
-//         back: '&',
-//         form: '='
-//     },
-//     bindToController: true,
-// });
