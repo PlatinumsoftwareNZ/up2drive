@@ -1,31 +1,6 @@
 (function (angular) {
     'use strict';
-    function mainController($location, $moment, persistenceService, optionsService, $state) {
-        var ctrl = this;
-        
-        ctrl.MoveNext = function () {
-            ctrl.stage++;
-        };
-
-        ctrl.MoveBack = function () {
-            console.log('back');
-            ctrl.stage--;
-        };
-
-        ctrl.stage = function() {
-            if ($state.current.data) {
-                return $state.current.data.stage;
-            } else return 0;
-        }
-
-        ctrl.PersonalDetailsNext = function () {
-            //if ctrl.pd.valid
-            ctrl.MoveNext();
-        }
-
-        ctrl.AboutNext = function () {
-            ctrl.MoveNext();
-        }
+    function mainController() {
     }
 
     angular.module('consumerApp').component('main', {

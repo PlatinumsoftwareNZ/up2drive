@@ -1,4 +1,5 @@
-angular.module('consumerApp').controller('personalDetailsController', ['$state', 'optionsService', 'amortisationService', 'next', 'model',  function ($state, optionsService, amortisationService, next, model) {
+angular.module('consumerApp').controller('personalDetailsController', ['$state', 'optionsService', 'persistenceService', 'next', 'model',  
+    function ($state, optionsService, persistenceService, next, model) {
     var ctrl = this;
     ctrl.next = next;
     ctrl.TermOptions = [];
@@ -10,7 +11,12 @@ angular.module('consumerApp').controller('personalDetailsController', ['$state',
 
     ctrl.FormSubmit = function (form) {
         if (form.$valid) {
-            $state.go(ctrl.next);
+            persistenceService
+            .SubmitNow(model)
+            .then(function (model) {
+                ctrl.model.Id = model.data.Id;
+                $state.go(ctrl.next);
+            })
         } else {
             form.$setSubmitted();
             return false;

@@ -9,7 +9,12 @@
         }
 
         self.SubmitNow = function (model) {
-            return $http.post(self.GetApiBaseUrl() + "CustomerQuery/", model);
+            if (model.Id){
+                return $http.post(self.GetApiBaseUrl() + "/CustomerQuery/" + model.Id, model, {params: {id: model.Id}});
+            }
+            else {
+                return $http.put(self.GetApiBaseUrl() + "/CustomerQuery/", model);
+            }                
         };
         
         return self;
