@@ -14,8 +14,8 @@ angular.module('consumerApp').controller('personalDetailsController', ['$state',
             persistenceService
             .SubmitNow(model)
             .then(function (model) {
-                ctrl.model.Id = model.data.Id;
-                $state.go(ctrl.next);
+                angular.copy(model.data, ctrl.model);
+                $state.go(ctrl.next, {id: ctrl.model.Id});
             })
         } else {
             form.$setSubmitted();

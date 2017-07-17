@@ -25,9 +25,6 @@ var config = {
     }
 };
 
-
-
-
 gulp.task('clean', function() {
     return del(['dist/*']);
 });
@@ -63,7 +60,6 @@ gulp.task('css', function() {
 });
 
   
-
 gulp.task('dist', function() {
 
   return gulp.src([
@@ -86,8 +82,6 @@ gulp.task('env', function() {
     .pipe(gulp.dest('dist/src'));
 });
 
-
-
 // cacheBuster looks at the css and js files and appends a hash to the
 // request to cause the file to get reloaded when the file changes.
 gulp.task('cacheBust', function () {
@@ -104,6 +98,6 @@ gulp.task('deploy', function(callback) {
 });
 
 gulp.task('watch', ['js','css'], function () {
-  gulp.watch('assets/js/*.js', ['js'])
+  gulp.watch('app/*.js', ['js'])
   gulp.watch('assets/css/*.css', ['css'])
 })

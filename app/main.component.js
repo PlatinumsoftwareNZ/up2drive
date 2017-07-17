@@ -1,11 +1,21 @@
 (function (angular) {
     'use strict';
-    function mainController() {
+    function mainController($state, $rootScope) {
+        var ctrl = this;
+        ctrl.stage = 0;
+
+        $rootScope.$on('$stateChangeSuccess', 
+            function(event, toState, toParams, fromState, fromParams){ 
+                event.preventDefault(); 
+                if ($state.current.data) {
+                    ctrl.stage = $state.current.data.stage;
+                }
+        })        
     }
 
     angular.module('consumerApp').component('main', {
         templateUrl: 'app/main.component.html',
-        controller: ['$location', '$moment', 'persistenceService', 'optionsService', '$state', mainController]
+        controller: ['$state','$rootScope', mainController]
     });
 })(window.angular);
 

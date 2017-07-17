@@ -16,8 +16,8 @@
 
         self.GetGenderOptions = function () {
             return [
-                'Female',
-                'Male'
+                {value: 1, text: 'Female'},
+                {value: 2, text: 'Male'}                
             ];
         }
 
@@ -33,11 +33,11 @@
 
         self.GetNewVehicleDetailTypeOptions = function () {
             return [
-                'Year/Make/Model',
-                'Trade Me Listing Number',
-                'Registration Number',
-                'Dealership name',
-                'Still Looking'
+                { value: 1, text: 'Year/Make/Model' },
+                { value: 2, text: 'Trade Me Listing Number' },
+                { value: 3, text: 'Registration Number' },
+                { value: 4, text: 'Dealership name' },
+                { value: 5, text: 'Still Looking' }
             ];
         }
 
@@ -59,21 +59,21 @@
 
         self.GetDriverLicenceOptions = function () {
             return [
-                'Full',
-                'Restricted',
-                'Learners',
-                'Overseas',
-                'None',
+                { value: 1, text: 'Full'},
+                { value: 2, text: 'Restricted'},
+                { value: 3, text: 'Learners'},
+                { value: 4, text: 'Overseas'},
+                { value: 5, text: 'None'}
             ];
         }
 
         self.GetCurrentAddressTypeOptions = function () {
             return [
-                { value: 'OwnHome', text: 'Home owner' },
-                { value: 'Renting', text: 'Renting' },
-                { value: 'Boarding', text: 'Boarding' },
-                { value: 'FamilyHouse', text: 'Living at home' },
-                { value: 'Other', text: 'Other' },
+                { value: 1, text: 'Home owner' },
+                { value: 2, text: 'Renting' },
+                { value: 3, text: 'Boarding' },
+                { value: 4, text: 'Living at home' },
+                { value: 5, text: 'Other' },
             ];
         }
 

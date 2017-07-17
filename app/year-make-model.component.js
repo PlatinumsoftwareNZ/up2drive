@@ -2,11 +2,6 @@
     'use strict';
     function yearMakeModelController(applicationService) {
         var ctrl = this;
-        var currentStage = "";
-
-        ctrl.$onInit = function () {
-
-        };
     }
 
     angular.module('consumerApp').component('yearMakeModel', {
@@ -14,8 +9,9 @@
         controller: [ yearMakeModelController],
         bindings: {
             prefix: "<",
-            model: "<",
-            next: '&'
+            year: "=",
+            make: "=",
+            vehicleModel: "="
         },
     });
 })(window.angular);

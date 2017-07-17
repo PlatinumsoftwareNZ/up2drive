@@ -17,6 +17,10 @@
             }                
         };
         
+        self.getById = function(id) {
+           return $http.get(self.GetApiBaseUrl() + "/CustomerQuery/" + id);
+        }
+
         return self;
     }]);
 })(window.angular);

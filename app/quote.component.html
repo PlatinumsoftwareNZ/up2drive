@@ -14,7 +14,7 @@
                     <div class="form-group">
                         <label for="Term of loan" class="col-sm-4 control-label">Term of loan</label>
                         <div class="col-sm-8">
-                            <select name="Term" class="form-control" ng-options="option.value as option.text for option in $ctrl.TermOptions" ng-model="$ctrl.model.Term"></select>
+                            <select name="Term" class="form-control" ng-options="option.value as option.text for option in $ctrl.TermOptions" ng-model="$ctrl.model.TermOfLoanMonths"></select>
                         </div>
                     </div>
 
@@ -23,7 +23,7 @@
                         <div class="col-sm-8">
                             <div class="input-group">
                                 <span class="input-group-addon">$</span>
-                                <input name="cashprice" required type="number" class="form-control" ng-model="$ctrl.model.CashPrice" />
+                                <input name="cashprice" required type="number" class="form-control" ng-model="$ctrl.model.PurchasePrice" />
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                         <div class="col-sm-8">
                             <div class="input-group">
                                 <span class="input-group-addon">$</span>
-                                <input name="deposit" required type="number" class="form-control" ng-model="$ctrl.model.Deposit" />
+                                <input name="deposit" required type="number" class="form-control" ng-model="$ctrl.model.DepositAmount" />
                             </div>
                         </div>
                     </div>

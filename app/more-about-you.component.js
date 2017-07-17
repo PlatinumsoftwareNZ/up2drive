@@ -1,13 +1,7 @@
-angular.module('consumerApp').controller('moreAboutYouController', ['optionsService', 'model', '$state', 'back', 'next', function (optionsService, model, $state, back, next) {
+angular.module('consumerApp').controller('moreAboutYouController', ['optionsService','persistenceService', 'model', '$state', 'back', 'next', 
+function (optionsService, persistenceService, model, $state, back, next) {
     var ctrl = this;
 
-    ctrl.DriverLicenceOptions = [];
-    ctrl.CurrentAddressTypeOptions = [];
-    ctrl.GenderOptions = [];
-    ctrl.YesNoOptions = [];
-    ctrl.CreditHistoryOptions = [];
-    ctrl.NewVehicleDetailTypeOptions = [];
-    ctrl.YearMakeModelOption = null;
     ctrl.back = back;
     ctrl.next = next;
     ctrl.model = model;
@@ -28,14 +22,13 @@ angular.module('consumerApp').controller('moreAboutYouController', ['optionsServ
     }
 
     ctrl.DisplayNewYearMakeModel = function () {
-        return ctrl.model &&
-            ctrl.model.NewVehicleDetailType === ctrl.YearMakeModelOption;
+        return ctrl.model.NewVehicleDetailId === 1;
     }
 
     ctrl.DisplayNewDetails = function () {
         return ctrl.model &&
-            ctrl.model.NewVehicleDetailType !== ctrl.YearMakeModelOption &&
-            ctrl.model.NewVehicleDetailType !== ctrl.StillLookingOption;
+            ctrl.model.NewVehicleDetailId !== 1 &&
+            ctrl.model.NewVehicleDetailId !== 5;
     }
 
     ctrl.DisplayTradeYearMakeModel = function () {
@@ -43,9 +36,13 @@ angular.module('consumerApp').controller('moreAboutYouController', ['optionsServ
     }
 
     ctrl.FormSubmit = function (form) {
-        console.log(ctrl.next);
         if (form.$valid) {
-            $state.go(ctrl.next);
+            persistenceService
+            .SubmitNow(model)
+            .then(function (model) {
+                angular.copy(model.data, ctrl.model);
+                $state.go(ctrl.next);
+            })
         } else {
             form.$setSubmitted();
             return false;
