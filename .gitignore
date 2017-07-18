@@ -33,3 +33,5 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
+assets/css/app.css
+assets/js/app.js
