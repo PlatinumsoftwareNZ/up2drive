@@ -45,7 +45,7 @@
         <div class="form-group required" ng-class="{ 'has-error': ((form.$submitted || form.currentAddress.$touched) && form.currentAddress.$invalid) }">
             <label class="col-sm-4 control-label">Current Address?</label>
             <div class="col-sm-8">
-                <address-finder required="true" name="currentAddress" label="'Current Address'" model="$ctrl.model.CurrentAddress"></address-finder>
+                <address-finder required="true" name="currentAddress" current-address="$ctrl.model.CurrentAddress" on-address-change="$ctrl.currentAddressChange(newAddress)"></address-finder>
             </div>
         </div>
 
@@ -64,7 +64,7 @@
         <div class="form-group" ng-if="$ctrl.model.CurrentAddressYears && $ctrl.model.CurrentAddressYears < 3">
             <label class="col-sm-4 control-label">Previous Address</label>
             <div class="col-sm-8">
-                <address-finder model="$ctrl.model.PreviousAddress"></address-finder>
+                <address-finder current-address="$ctrl.model.PreviousAddress" on-address-change="$ctrl.previousAddressChange(newAddress)"></address-finder>
             </div>
         </div>
     </fieldset>
@@ -101,7 +101,7 @@
         <div class="form-group required" ng-if="$ctrl.model.CurrentJobYears && $ctrl.model.CurrentJobYears < 3">
             <label class="col-sm-4 control-label">Who did you work for before that?</label>
             <div class="col-sm-8">
-                <input class="form-control" model="$ctrl.model.PreviousEmployer"></input>
+                <input type="text" class="form-control" name="previousEmployer" ng-model="$ctrl.model.PreviousEmployer"></input>
             </div>
         </div>
     </fieldset>
@@ -198,6 +198,3 @@
         <button type="button" class="btn btn-primary" ng-click="$ctrl.FormSubmit(form)">Next</button>
     </div>
 </form>
-<pre>
-{{$ctrl.model | json}}
-</pre>

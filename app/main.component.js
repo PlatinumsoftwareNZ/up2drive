@@ -2,15 +2,14 @@
     'use strict';
     function mainController($state, $rootScope) {
         var ctrl = this;
-        ctrl.stage = 0;
 
-        $rootScope.$on('$stateChangeSuccess', 
-            function(event, toState, toParams, fromState, fromParams){ 
-                event.preventDefault(); 
-                if ($state.current.data) {
-                    ctrl.stage = $state.current.data.stage;
-                }
-        })        
+        ctrl.stage = function() {
+            if ($state.current && $state.current.data) {
+                return $state.current.data.stage;
+            } else {
+                return 0;
+            }
+        }    
     }
 
     angular.module('consumerApp').component('main', {

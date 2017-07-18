@@ -1,3 +1,6 @@
 <div>
-    <input ng-attr-required="$ctrl.required" name="{{$ctrl.name}}" type="text" class="form-control" g-places-autocomplete options="$ctrl.mapOptions" ng-model="$ctrl.AddressEntry" ng-change="$ctrl.AddressEntryChanged()" placeholder="type to search" />
+    <input ng-attr-required="$ctrl.required" name="{{$ctrl.name}}" type="text" class="form-control" g-places-autocomplete options="$ctrl.mapOptions" ng-model="$ctrl.AddressEntry" 
+    ng-change="$ctrl.AddressEntryChanged()" 
+    ng-model-options='{ debounce: 500 }'
+    placeholder="type to search" />
 </div>

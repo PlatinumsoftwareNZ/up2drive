@@ -17,6 +17,15 @@ function (optionsService, persistenceService, model, $state, back, next) {
         ctrl.YearMakeModelOption = ctrl.NewVehicleDetailTypeOptions[0];
     }
 
+    ctrl.currentAddressChange = function(newAddress) {
+        ctrl.model.currentAddress = newAddress;
+    }
+
+    ctrl.previousAddressChange = function(newAddress) {
+        ctrl.model.previousAddress = newAddress;
+    }
+
+
     ctrl.RequestBack = function () {
         $state.go(ctrl.back);
     }
