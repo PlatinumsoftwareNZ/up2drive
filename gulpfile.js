@@ -1,6 +1,5 @@
 var gulp = require('gulp')
 var concat = require('gulp-concat')
-var sourcemaps = require('gulp-sourcemaps')
 var uglify = require('gulp-uglify')
 var ngAnnotate = require('gulp-ng-annotate')
 var util = require('gulp-util')
@@ -39,12 +38,10 @@ gulp.task('js', function () {
   'node_modules/@uirouter/angularjs/release/angular-ui-router.min.js',
    'app/main.js',
    'app/**/*.js'])
-  .pipe(gulpif(config.sourceMaps,sourcemaps.init()))
-    .pipe(concat('app.js'))
+      .pipe(concat('app.js'))
     .pipe(gulpif(config.production,ngAnnotate()))
     .pipe(gulpif(config.production,uglify()))
-    .pipe(gulpif(config.sourceMaps,sourcemaps.write()))
-     .pipe(gulp.dest('assets/js'))
+       .pipe(gulp.dest('assets/js'))
 })
 
 gulp.task('css', function() {
